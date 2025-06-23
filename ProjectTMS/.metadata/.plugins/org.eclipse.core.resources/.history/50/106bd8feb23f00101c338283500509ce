@@ -1,0 +1,20 @@
+ package com.java.jsf.dao;
+
+import java.util.List;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+
+import com.java.jsf.model.Expenses;
+
+public class ExpensesDaoImpl implements ExpensesDao {
+
+	SessionFactory sessionFactory;
+	Session session;
+	@Override
+	public List<Expenses> showExpenses() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

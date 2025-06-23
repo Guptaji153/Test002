@@ -1,0 +1,16 @@
+package com.java.hib;
+
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.AnnotationConfiguration;
+
+
+public class EmployShowMain {
+
+	public static void main(String[] args) {
+		
+		SessionFactory sf = new AnnotationConfiguration().configure().buildSessionFactory();
+		System.out.println("connected");
+		
+	}
+	
+}

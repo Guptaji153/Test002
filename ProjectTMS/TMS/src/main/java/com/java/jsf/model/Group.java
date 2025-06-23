@@ -1,0 +1,107 @@
+package com.java.jsf.model;
+
+import java.sql.Timestamp;
+
+import java.util.Set;
+
+import com.java.ejb.User;
+
+public class Group {
+
+	private int id;
+	private String name;
+	private Timestamp createdAt;
+
+	private Set<User> users;
+	
+	private User user;
+
+
+
+
+	public User getUser() {
+		return user;
+	}
+
+
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+
+
+	public Set<User> getUsers() {
+		return users;
+	}
+
+
+
+	public void setUsers(Set<User> users) {
+		this.users = users;
+	}
+
+
+
+	public int getId() {
+		return id;
+	}
+
+
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public Timestamp getCreatedAt() {
+		return createdAt;
+	}
+
+	public void setCreatedAt(Timestamp createdAt) {
+		this.createdAt = createdAt;
+	}
+
+
+
+	public Group() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+
+
+	public Group(int id, String name, Timestamp createdAt, User user) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.createdAt = createdAt;
+		this.user = user;
+	}
+
+
+
+	@Override
+	public String toString() {
+		return "Group [id=" + id + ", name=" + name + ", createdAt=" + createdAt + "]";
+	}
+
+
+
+
+
+
+
+
+
+}
+//id INT AUTO_INCREMENT PRIMARY KEY,
+//name VARCHAR(100) NOT NULL,
+//created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP

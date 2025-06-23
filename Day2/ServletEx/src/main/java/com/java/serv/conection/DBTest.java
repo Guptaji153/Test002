@@ -1,0 +1,20 @@
+package com.java.serv.conection;
+
+
+import java.sql.Connection;
+import java.sql.SQLException;
+
+public class DBTest {
+    public static void main(String[] args) {
+        try {
+            // Try to get the connection
+            Connection connection = ConnectionHelper.getConnection();
+            if (connection != null) {
+                System.out.println("Connected to the database!");
+                connection.close();  // Close the connection after use
+            }
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
+    }
+}

@@ -1,0 +1,62 @@
+package com.java.jsf.model;
+
+public class SettlementResult {
+    public double totalCollected;
+    public long memberCount;
+    public double totalExpenses;
+    public double balancePerPerson;
+    public double adminRefund;
+	public double getTotalCollected() {
+		return totalCollected;
+	}
+	public void setTotalCollected(double totalCollected) {
+		this.totalCollected = totalCollected;
+	}
+	public long getMemberCount() {
+		return memberCount;
+	}
+	public void setMemberCount(long memberCount) {
+		this.memberCount = memberCount;
+	}
+	public double getTotalExpenses() {
+		return totalExpenses;
+	}
+	public void setTotalExpenses(double totalExpenses) {
+		this.totalExpenses = totalExpenses;
+	}
+	public double getBalancePerPerson() {
+		return balancePerPerson;
+	}
+	public void setBalancePerPerson(double balancePerPerson) {
+		this.balancePerPerson = balancePerPerson;
+	}
+	public double getAdminRefund() {
+		return adminRefund;
+	}
+	public void setAdminRefund(double adminRefund) {
+		this.adminRefund = adminRefund;
+	}
+	public SettlementResult() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public SettlementResult(double totalCollected, long memberCount, double totalExpenses, double balancePerPerson,
+			double adminRefund) {
+		super();
+		this.totalCollected = totalCollected;
+		this.memberCount = memberCount;
+		this.totalExpenses = totalExpenses;
+		this.balancePerPerson = balancePerPerson;
+		this.adminRefund = adminRefund;
+	}
+	@Override
+	public String toString() {
+		return "SettlementResult [totalCollected=" + totalCollected + ", memberCount=" + memberCount
+				+ ", totalExpenses=" + totalExpenses + ", balancePerPerson=" + balancePerPerson + ", adminRefund="
+				+ adminRefund + "]";
+	}
+
+
+	
+}
+

@@ -1,0 +1,22 @@
+package com.java.collectionEx;
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Enter the student's name:");
+        String name = sc.nextLine();
+
+        System.out.println("Enter the student's roll number:");
+        int rollNumber = sc.nextInt();
+
+        System.out.println("Enter the student's marks:");
+        double marks = sc.nextDouble();
+
+        Students o1 = new Students(name, rollNumber, marks);
+
+        System.out.println(o1);
+    }
+}

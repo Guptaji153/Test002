@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.java.jsf.model.User" table="users">
+
+        <!-- Primary Key -->
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+
+        <!-- Other Columns -->
+        <property name="name" type="java.lang.String">
+            <column name="name" not-null="true" length="100" />
+        </property>
+
+        <property name="email" type="java.lang.String">
+            <column name="email" not-null="true" unique="true" length="100" />
+        </property>
+
+        <!-- createdAt: Let DB handle default timestamp -->
+        <property name="createdAt" type="timestamp" insert="false" update="false">
+            <column name="created_at" />
+        </property>
+        <property name="role" type="string">
+    <column name="role" not-null="true" length="20"/>
+</property>
+        
+        
+   <set name="groups" table="group_members" cascade="none" lazy="false" fetch="join">
+    <key column="user_id" />
+    <many-to-many column="group_id" class="com.java.jsf.model.Group" />
+</set>
+
+
+    </class>
+    
+    <query name="showUsers">
+        FROM User
+    </query>
+<query name="searchUser">
+    from User u where u.id = :userId
+</query>
+
+    <query name="authenticate">
+   from User WHERE name = :userName AND email = :email
+    </query>
+    
+    
+    
+</hibernate-mapping>

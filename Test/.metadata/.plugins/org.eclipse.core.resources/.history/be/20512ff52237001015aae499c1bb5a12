@@ -1,0 +1,45 @@
+package com.java.collectionEx;
+
+import java.util.*;
+
+public class Exercise5 {
+
+    public int SecondLargest(ArrayList<Integer> list) {
+        int largest = Integer.MIN_VALUE;
+        int secondLargest = Integer.MIN_VALUE;
+
+        for (int i = 0; i < list.size(); i++) {
+            int number = list.get(i);
+
+            if (number > largest) {
+                secondLargest = largest;
+                largest = number;
+            } else if (number > secondLargest && number < largest) {
+                secondLargest = number;
+            }
+        }
+
+        return secondLargest;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        ArrayList<Integer> list = new ArrayList<>();
+        System.out.println("Enter the number of elements:");
+        int n = sc.nextInt();
+        System.out.println("Enter the elements:");
+        for (int i = 0; i < n; i++) {
+            list.add(sc.nextInt());
+        }
+
+        
+        
+        Exercise5 obj = new Exercise5();
+        int secondLargest = obj.SecondLargest(list);
+
+        System.out.println("Second largest number: " + secondLargest);
+
+
+    }
+}
+

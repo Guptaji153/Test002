@@ -1,0 +1,34 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+
+<%@ taglib prefix="f" uri="http://java.sun.com/jsf/core" %>
+<%@ taglib prefix="h" uri="http://java.sun.com/jsf/html" %>
+
+<f:view>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+<h:form id="userForm">
+    <h:outputLabel value="Name: " for="name" />
+    <h:inputText id="name" value="#{ejbUser.name}" /> 
+    <h:message for="name" style="color:red" />
+    <br>
+
+    <h:outputLabel value="Email: " for="email" />
+    <h:inputText id="email" value="#{ejbUser.email}" />
+    <h:message for="email" style="color:red" />
+    <br>
+
+    
+    <h:commandButton action="#{controllerTMS.addUserEjb(ejbUser)}" value="Add User" immediate="false" />
+    
+</h:form>
+
+</body>
+</html>
+</f:view>

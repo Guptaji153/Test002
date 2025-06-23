@@ -1,0 +1,24 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>this is admin</h1>
+jcjkdbc jdhclj dljhcl sdlhnclk klsnc 
+
+<a href="addGroup.jsf">Add Groups</a>  <br>
+<a href="addGroupsMember.jsf">Add Groups Member</a> <br>
+<a href="showGroups.jsf">Show Groups</a> <br>
+<a href="ShowGroupsUsers.jsf">Show Groups User</a>  <br>
+<a href="ShowUser.jsf">Show All Users</a>  <br>
+<a href="searchUser.jsf">Search User By Id</a><br>
+<a href="expensesList.jsf">show expenses</a>
+<a href="addExpenses.jsf">Add Expenses</a> <br>
+<a href="settlement.jsf">Settlement</a><br>
+
+</body>
+</html>

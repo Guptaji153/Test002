@@ -1,0 +1,22 @@
+package com.java.jsf.controller;
+
+import com.java.jsf.EmployEjbStatefulImpl;
+import com.java.jsf.EmployEjbStatelessImpl;
+
+public class EmployController {
+
+	public EmployEjbStatefulImpl getEmployEjbStatefullImpl() {
+		return employEjbStatefullImpl;
+	}
+	public void setEmployEjbStatefullImpl(EmployEjbStatefulImpl employEjbStatefullImpl) {
+		this.employEjbStatefullImpl = employEjbStatefullImpl;
+	}
+	public EmployEjbStatelessImpl getEmployEjbStatelessImpl() {
+		return employEjbStatelessImpl;
+	}
+	public void setEmployEjbStatelessImpl(EmployEjbStatelessImpl employEjbStatelessImpl) {
+		this.employEjbStatelessImpl = employEjbStatelessImpl;
+	}
+	private EmployEjbStatefulImpl employEjbStatefullImpl;
+	private EmployEjbStatelessImpl employEjbStatelessImpl;
+}

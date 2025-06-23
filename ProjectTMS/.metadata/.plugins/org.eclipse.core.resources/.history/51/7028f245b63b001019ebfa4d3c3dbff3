@@ -1,0 +1,16 @@
+package com.java.jsf.model;
+
+import java.sql.Timestamp;
+
+public class User {
+
+	private int id;
+	private String  name;
+	private String email;
+	private Timestamp createdAt;
+}
+
+//id INT AUTO_INCREMENT PRIMARY KEY,
+//name VARCHAR(100) NOT NULL,
+//email VARCHAR(100) NOT NULL UNIQUE,
+//created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP

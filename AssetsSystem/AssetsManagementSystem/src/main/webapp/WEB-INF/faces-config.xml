@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config 
+    xmlns="http://java.sun.com/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd"
+    version="2.0" metadata-complete="false">
+    
+    
+    <managed-bean>
+    <managed-bean-name>user</managed-bean-name>
+    <managed-bean-class>com.java.jsf.model.User</managed-bean-class>
+    <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+    <managed-bean-name>userDao</managed-bean-name>
+    <managed-bean-class>com.java.jsf.dao.UserDaoImpl</managed-bean-class>
+    <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+    <managed-bean-name>admin</managed-bean-name>
+    <managed-bean-class>com.java.jsf.model.Admin</managed-bean-class>
+    <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+    <managed-bean-name>adminDao</managed-bean-name>
+    <managed-bean-class>com.java.jsf.dao.AdminDaoImpl</managed-bean-class>
+    <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+    <managed-bean-name>asset</managed-bean-name>
+    <managed-bean-class>com.java.jsf.model.Asset</managed-bean-class>
+    <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+     <managed-bean>
+    <managed-bean-name>assetDao</managed-bean-name>
+    <managed-bean-class>com.java.jsf.dao.AssetDaoImpl</managed-bean-class>
+    <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+    <managed-bean-name>assetsController</managed-bean-name>
+    <managed-bean-class>com.java.jsf.controller.AssetsController</managed-bean-class>
+    <managed-bean-scope>request</managed-bean-scope>
+    <managed-property>
+<property-name>userDao</property-name>
+<property-class>com.java.jsf.dao.UserDao</property-class>
+<value>#{userDao}</value>
+</managed-property>
+<managed-property>
+<property-name>user</property-name>
+<property-class>com.java.jsf.model.User</property-class>
+<value>#{user}</value>
+</managed-property>
+<managed-property>
+<property-name>adminDao</property-name>
+<property-class>com.java.jsf.dao.AdminDao</property-class>
+<value>#{adminDao}</value>
+</managed-property>
+<managed-property>
+<property-name>admin</property-name>
+<property-class>com.java.jsf.model.Admin</property-class>
+<value>#{admin}</value>
+</managed-property>
+<managed-property>
+<property-name>asset</property-name>
+<property-class>com.java.jsf.model.Asset</property-class>
+<value>#{asset}</value>
+</managed-property>
+ <managed-property>
+<property-name>assetDao</property-name>
+<property-class>com.java.jsf.dao.AssetDao</property-class>
+<value>#{assetDao}</value>
+</managed-property>   
+    </managed-bean>
+    
+    
+    </faces-config>

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;GroupsMember.java&apos; to &apos;TMS/src/main/java/com.java.ejb&apos;&#x0D;&#x0A;- Original project: &apos;EjbTMS&apos;&#x0D;&#x0A;- Destination element: &apos;TMS/src/main/java/com.java.ejb&apos;&#x0D;&#x0A;- Original element: &apos;com.java.ejb.GroupsMember.java&apos;" description="Copy compilation unit" destination="=TMS/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.java.ejb" element1="/ejbModule&lt;com.java.ejb{GroupsMember.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1748772063491" units="1" version="1.0"/>
+</session>

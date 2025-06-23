@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.java.jsf.model.GroupsMember" table="group_members">
+        
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="identity"/>
+        </id>
+
+        <many-to-one name="group" class="com.java.jsf.model.Group" fetch="join">
+            <column name="group_id" not-null="true"/>
+        </many-to-one>
+
+        <many-to-one name="user" class="com.java.jsf.model.User" fetch="join">
+            <column name="user_id" not-null="true"/>
+        </many-to-one>
+
+        <property name="joinedAt" type="timestamp" insert="false" update="false">
+            <column name="joined_at" />
+        </property>
+        <property name="isAdmin" type="boolean">
+    <column name="is_admin" not-null="true" />
+</property>
+        
+
+    </class>
+    
+    <query name="showGroupsMember">
+        FROM GroupsMember
+    </query>
+</hibernate-mapping>

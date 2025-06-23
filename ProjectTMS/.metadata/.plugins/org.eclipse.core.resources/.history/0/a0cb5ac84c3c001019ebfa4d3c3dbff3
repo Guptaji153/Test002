@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config 
+    xmlns="http://java.sun.com/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd"
+    version="2.0" metadata-complete="false">
+    
+<managed-bean>
+<managed-bean-name>userDao</managed-bean-name>
+<managed-bean-class>com.java.jsf.dao.UserDaoImpl</managed-bean-class>
+<managed-bean-scope>request</managed-bean-scope>
+</managed-bean>
+<managed-bean>
+<managed-bean-name>user</managed-bean-name>
+<managed-bean-class>com.java.jsf.model.User</managed-bean-class>
+<managed-bean-scope>request</managed-bean-scope>
+</managed-bean>
+
+<managed-bean>
+<managed-bean-name>controllerTMS</managed-bean-name>
+<managed-bean-class>com.java.jsf.controller.ControllerTMS</managed-bean-class>
+<managed-bean-scope>request</managed-bean-scope>
+
+<managed-property>
+<property-name>userDao</property-name>
+<property-class>com.java.jsf.dao.UserDaoImpl</property-class>
+<value>#{userDao}</value>
+</managed-property>
+
+<managed-property>
+<property-name>user</property-name>
+<property-class>com.java.jsf.model.User</property-class>
+<value>#{user}</value>
+</managed-property>
+</managed-bean>
+    
+
+    </faces-config>

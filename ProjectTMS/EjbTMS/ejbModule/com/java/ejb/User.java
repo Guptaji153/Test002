@@ -1,0 +1,92 @@
+package com.java.ejb;
+
+import java.io.Serializable;
+
+
+import java.sql.Timestamp;
+import java.util.Set;
+
+public class User implements Serializable {
+
+	private int id;
+	private String  name;
+	private String email;
+	private Timestamp createdAt;
+	private String role;
+	
+	public String getRole() {
+		return role;
+	}
+	public void setRole(String role) {
+		this.role = role;
+	}
+	private Set<Group> groups;
+	
+
+	public Set<Group> getGroups() {
+		return groups;
+	}
+	public void setGroups(Set<Group> groups) {
+		this.groups = groups;
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public Timestamp getCreatedAt() {
+		return createdAt;
+	}
+	public void setCreatedAt(Timestamp createdAt) {
+		this.createdAt = createdAt;
+	}
+
+	
+	
+
+
+	public User(int id, String name, String email, Timestamp createdAt, String role, Set<Group> groups) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.email = email;
+		this.createdAt = createdAt;
+		this.role = role;
+		this.groups = groups;
+	}
+
+	public User() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", name=" + name + ", email=" + email + ", createdAt=" + createdAt + ", groups="
+				+ groups + "]";
+	}
+	
+	
+
+	
+	
+	
+}
+
+
+//id INT AUTO_INCREMENT PRIMARY KEY,
+//name VARCHAR(100) NOT NULL,
+//email VARCHAR(100) NOT NULL UNIQUE,
+//created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP

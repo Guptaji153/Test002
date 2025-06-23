@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="com.java.abs.JavaTraining"/>
+    <fullyQualifiedTypeName name="com.java.abs.DotnetTraining"/>
+    <fullyQualifiedTypeName name="com.java.abs.AbstractFactory"/>
+    <fullyQualifiedTypeName name="com.java.abs.TrainingFactory"/>
+    <fullyQualifiedTypeName name="com.java.abs.Training"/>
+    <fullyQualifiedTypeName name="com.java.abs.ReactTraining"/>
+    <fullyQualifiedTypeName name="com.java.abs1.IPhone"/>
+    <fullyQualifiedTypeName name="com.java.abs1.Samsung"/>
+    <fullyQualifiedTypeName name="com.java.abs1.AbstractFactory"/>
+    <fullyQualifiedTypeName name="com.java.abs1.MobileFactory"/>
+    <fullyQualifiedTypeName name="com.java.abs1.Mobile"/>
+    <fullyQualifiedTypeName name="com.java.abs1.OnePlus"/>
+    <fullyQualifiedTypeName name="java.rmi.RemoteException"/>
+    <fullyQualifiedTypeName name="java.rmi.Remote"/>
+    <fullyQualifiedTypeName name="com.java.ejb.HelloBeanRemote"/>
+    <fullyQualifiedTypeName name="javax.ejb.Remote"/>
+</qualifiedTypeNameHistroy>

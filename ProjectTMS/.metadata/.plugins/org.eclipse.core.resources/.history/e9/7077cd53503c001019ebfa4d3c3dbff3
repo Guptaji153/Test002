@@ -1,0 +1,26 @@
+package com.java.ejb.Dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.util.List;
+
+import com.java.ejb.model.User;
+
+public class UserDaoImpl implements UserDao {
+
+	Connection connection;
+	PreparedStatement pst;
+	
+	@Override
+	public List<User> showUsers() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String addUser(User user) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

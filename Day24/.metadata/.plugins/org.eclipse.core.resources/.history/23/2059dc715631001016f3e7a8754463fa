@@ -1,0 +1,29 @@
+//package com.java.jsf.util;
+//
+//import org.hibernate.SessionFactory;
+//import org.hibernate.cfg.AnnotationConfiguration;
+//
+//public class SessionHelper {
+//
+//	public static SessionFactory getConnection() {
+//		return new AnnotationConfiguration().configure().buildSessionFactory();
+//	}
+//}
+
+
+package com.java.jsf.util;
+
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.AnnotationConfiguration;
+
+public class SessionHelper {
+
+    public static SessionFactory getConnection() {
+        // This will configure the session using the hibernate.cfg.xml file and 
+        // also register the resource manually for the hbm.xml file
+        return new AnnotationConfiguration()
+                .configure() // This loads the hibernate.cfg.xml file
+                .addResource("com/java/jsf/model/Employ.hbm.xml") // This adds the mapping file
+                .buildSessionFactory();
+    }
+}

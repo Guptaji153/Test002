@@ -1,0 +1,6 @@
+package com.java.abs1;
+
+public interface AbstractFactory {
+
+	public abstract Mobile getName(String topic);
+}

@@ -1,0 +1,19 @@
+package com.java.abs;
+
+public class TrainingFactory extends AbstractFactory{
+
+	@Override
+	public Training getDetails(String topic) {
+		// TODO Auto-generated method stub
+		
+		if(topic.equals("java")) {
+			return new JavaTraining();
+		}
+		if(topic.equals("Dotnet")) {
+			return new DotnetTraining();
+		}
+		
+		return null;
+	}
+
+}

@@ -1,0 +1,36 @@
+package com.java.ejb.Dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+import com.java.ejb.Expenses;
+import com.java.ejb.connection.ConnectionHelper;
+
+public class ExpensesDaoImpl implements ExpensesDao {
+
+	Connection connection;
+	PreparedStatement pst;
+	@Override
+	public String addExpenses(Expenses expenses) throws ClassNotFoundException, SQLException {
+		Connection connection = ConnectionHelper.getConnection();
+
+		String cmd = "INSERT INTO expenses (group_id, paid_by_user_id, description, total_amount, expense_date) VALUES (?, ?, ?, ?, ?)";
+		PreparedStatement pst = connection.prepareStatement(cmd);
+
+		pst.setInt(1, expenses.getGroupId());        // <-- You need to add getGroupId() method in your Expenses POJO
+		pst.setInt(2, expenses.getPaidByUser());
+		pst.setString(3, expenses.getDescription());
+		pst.setBigDecimal(4, expenses.getTotalAmount());
+		//pst.setDate(5, expenses.getExpenseDate());
+		pst.setDate(5, new java.sql.Date(expenses.getExpenseDate().getTime()));
+
+
+		pst.executeUpdate();
+
+		return "Expense record inserted......";
+
+
+	}
+
+}

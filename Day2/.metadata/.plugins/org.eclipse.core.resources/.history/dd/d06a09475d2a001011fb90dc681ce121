@@ -1,0 +1,19 @@
+package com.java.exam.model;
+
+public class Agent {
+
+	
+	private int agentID;
+	private String name;
+	private String city;
+	private Gender gender;
+	private int maritalStatus;
+	private double numeric;
+}
+
+//AgentID INT primary key,
+//Name varchar(30),
+//City varchar(30),
+//GENDER ENUM('MALE','FEMALE'),
+//MaritalStatus INT,
+//Premium numeric(9,2)

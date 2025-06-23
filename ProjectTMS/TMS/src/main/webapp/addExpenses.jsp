@@ -1,0 +1,57 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+
+<%@ taglib prefix="f" uri="http://java.sun.com/jsf/core" %>
+<%@ taglib prefix="h" uri="http://java.sun.com/jsf/html" %>
+
+<f:view>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+<h:form id="userForm">
+    <h:outputLabel value="Group ID:" for="name" />
+    <h:inputText id="name" value="#{ejbExpenses.groupId}" /> 
+    <h:message for="name" style="color:red" />
+    <br>
+
+    <h:outputLabel value="Paid By User:" for="paidByUser" />
+    <h:inputText id="paidByUser" value="#{ejbExpenses.paidByUser}" />
+    <h:message for="paidByUser" style="color:red" />
+    <br>
+    
+     <h:outputLabel value="Description:" for="description" />
+    <h:inputText id="description" value="#{ejbExpenses.description}" />
+    <h:message for="description" style="color:red" />
+    <br>
+    
+      <h:outputLabel value="Total Amount:" for="totalAmount" />
+    <h:inputText id="totalAmount" value="#{ejbExpenses.totalAmount}" />
+    <h:message for="totalAmount" style="color:red" />
+    <br>
+    
+    
+    
+    <h:outputLabel value="Expense Date:" for="expenseDate" />
+    <h:inputText id="expenseDate" value="#{ejbExpenses.expenseDate}">
+      <f:convertDateTime pattern="yyyy-MM-dd" />
+    </h:inputText>
+    <h:message for="expenseDate" style="color:red" />
+    <br>
+    <!-- 
+    <h:outputLabel value="Created At:" for="createdAt" />
+    <h:inputText id="createdAt" value="#{ejbExpenses.createdAt}" />
+    <h:message for="createdAt" style="color:red" />
+    <br>    -->
+    
+    <h:commandButton action="#{controllerTMS.addExpensesEjb(ejbExpenses)}" value="Add Expenses" immediate="false" />
+    
+</h:form>
+
+</body>
+</html>
+</f:view>

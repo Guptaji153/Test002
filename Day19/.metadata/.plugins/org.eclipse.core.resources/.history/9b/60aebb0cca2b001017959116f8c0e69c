@@ -1,0 +1,40 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+       <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+<form method="get" action="Calc.jsp">
+ 
+ <center> 
+ 
+ First No:
+ <input type = "number" name = "firstNo"><br><br>
+ Second No:
+ <input type = "number" name = "secondNo"> <br><br>
+ <input type = "submit" value = "calculation">
+ 
+ </center>
+
+</form>
+
+<c:if test="$(param.firstNo != null && param.secondNo != null)">
+
+<jsp:useBean id="beanCal" class="com.java.jstlEx.Calc"></jsp:useBean>
+<jsp:setProperty property="*" name="beanCal"/>
+
+Sum is : <b>
+<c:out value="${beanCal.sum() }"></c:out>
+</b><br><br>
+
+Sub is : <c:out value="${beanCal.sub() }"></c:out>
+
+</c:if>
+
+</body>
+</html>

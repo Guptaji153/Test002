@@ -1,0 +1,14 @@
+package com.java.hib;
+
+import org.hibernate.cfg.AnnotationConfiguration;
+
+import com.mysql.cj.xdevapi.SessionFactory;
+
+public class EmployShowMain {
+
+	public static void main(String[] args) {
+		
+		SessionFactory sf = new AnnotationConfiguration().configure().buildSessionFactory();
+	}
+	
+}

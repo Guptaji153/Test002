@@ -1,0 +1,30 @@
+package com.java.exam.model;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
+public class Agent {
+
+	
+	private int agentID;
+	private String name;
+	private String city;
+	private Gender gender;
+	private int maritalStatus;
+	private double premium;
+}
+
+//AgentID INT primary key,
+//Name varchar(30),
+//City varchar(30),
+//GENDER ENUM('MALE','FEMALE'),
+//MaritalStatus INT,
+//Premium numeric(9,2)

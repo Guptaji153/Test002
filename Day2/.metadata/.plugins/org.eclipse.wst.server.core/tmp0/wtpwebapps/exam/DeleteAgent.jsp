@@ -1,0 +1,24 @@
+<%@page import="com.java.exam.dao.AgentDaoImpl"%>
+<%@page import="com.java.exam.dao.AgentDao"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<center><b><i> Welcome To Delete Agent Page</i></b></center>
+
+<%
+int agentID = Integer.parseInt(request.getParameter("agentID"));
+AgentDao dao = new AgentDaoImpl();
+dao.deleteAgentDao(agentID);
+%>
+
+<jsp:forward page="ShowAgent.jsp"></jsp:forward>
+
+
+</body>
+</html>

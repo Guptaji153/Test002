@@ -1,0 +1,26 @@
+package com.java.crimeSystem.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+
+import com.java.crimeSystem.model.Incidents;
+
+public class CrimeDaoImp implements CrimeDao {
+
+	@Override
+	public boolean createIncident(Incidents incident) {
+		// TODO Auto-generated method stub
+		Connection connection;
+		PreparedStatement psmt;
+		boolean result = false;
+		
+		 String query = "INSERT INTO Incidents (IncidentType, IncidentDate, Latitude, Longitude, Description, Status, AgencyID, OfficerID) "
+                 + "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+		 
+		 PreparedStatement stmt = connection.prepareStatement(query){
+			 
+		 }
+		return false;
+	}
+
+}

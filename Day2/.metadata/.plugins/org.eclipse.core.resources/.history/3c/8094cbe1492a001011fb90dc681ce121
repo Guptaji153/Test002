@@ -1,0 +1,30 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+<jsp:useBean id="beanName" class =com.sun.org.apache.bcel.internal.generic.AALOAD"com.java.bins.NameBeans> </jsp:useBean>
+<!-- 
+
+<jsp:setProperty property="firstName" name="beanName" value = "${param.firstName }"/>
+<jsp:setProperty property="lastName" name="beanName" value = "${parm.firstName }"/>
+
+ -->
+ <jsp:setProperty property="*" name="beanName"/>
+FirstName:<b>
+<jsp:getProperty property="firstName" name="beanName"/>
+</b>
+
+LastName:<b>
+<jsp:getProperty property="lastName" name="beanName"/>
+</b>
+
+Full Name:
+<%= beanName.showFullName() %>
+</body>
+</html>

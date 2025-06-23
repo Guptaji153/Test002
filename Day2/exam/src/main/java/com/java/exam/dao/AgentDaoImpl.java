@@ -1,0 +1,126 @@
+package com.java.exam.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.java.exam.model.Agent;
+import com.java.exam.model.Gender;
+import com.java.exam.util.ConnectionHelper;
+
+public class AgentDaoImpl implements AgentDao{
+
+	Connection connection;
+	PreparedStatement psmt;
+	
+	
+	@Override
+	public List<Agent> showAgentDao() throws ClassNotFoundException, SQLException {
+		List<Agent> agentList = new ArrayList<>();
+		Agent agent = null;
+		connection = ConnectionHelper.getConnection();
+		String query = "select * FROM agent";
+		psmt = connection.prepareStatement(query);
+		ResultSet rs = psmt.executeQuery();
+		while(rs.next()) {
+			agent = new Agent();
+			agent.setAgentID(rs.getInt("agentID"));
+			agent.setName(rs.getString("name"));
+			agent.setCity(rs.getString("city"));
+			agent.setGender(Gender.valueOf(rs.getString("gender")));
+			agent.setMaritalStatus(rs.getInt("maritalStatus"));
+			agent.setPremium(rs.getDouble("premium"));
+			agentList.add(agent);
+		}
+		
+		return agentList;
+		
+		
+	}
+
+
+	@Override
+	public String addAgent(Agent agent) throws ClassNotFoundException, SQLException {
+		// TODO Auto-generated method stub
+		String query = "INSERT into AGENT(agentID,name,gender,city,maritalStatus,premium) VALUES (?,?,?,?,?,?)";
+		connection = ConnectionHelper.getConnection();
+		psmt = connection.prepareStatement(query);
+		psmt.setInt(1, agent.getAgentID());
+		psmt.setString(2, agent.getName());
+		psmt.setString(3, agent.getGender().toString());
+		psmt.setString(4, agent.getCity());
+		psmt.setInt(5, agent.getMaritalStatus());
+		psmt.setDouble(6, agent.getPremium());
+		psmt.executeUpdate();
+		return "Agent Added ";
+	}
+
+
+	@Override
+	public String deleteAgentDao(int agentID) throws ClassNotFoundException, SQLException {
+	    
+	    Agent agentGot = searchAgentDao(agentID);
+	    if(agentGot != null) {
+	    	String query = "DELETE FROM agent WHERE agentID = ?";
+		    connection = ConnectionHelper.getConnection();
+		    psmt = connection.prepareStatement(query);
+		    psmt.setInt(1, agentID);
+		    psmt.executeUpdate();
+		    return "employ deleted";
+	    }
+	    return"recorn not found";
+	    
+	}
+
+
+	@Override
+	public Agent searchAgentDao(int agentID) throws ClassNotFoundException, SQLException {
+		// TODO Auto-generated method stub
+		Agent agent =null;
+		connection = ConnectionHelper.getConnection();
+		String cmd = "select * from agent where agentID = ?";
+		psmt = connection.prepareStatement(cmd);
+		psmt.setInt(1, agentID);
+		ResultSet rs = psmt.executeQuery();
+		
+		if(rs.next()) {
+			agent= new Agent();
+			agent.setAgentID(rs.getInt("agentID"));
+			agent.setName(rs.getString("name"));
+			agent.setCity(rs.getString("city"));
+			agent.setGender(Gender.valueOf(rs.getString("gender")));
+			agent.setMaritalStatus(rs.getInt("maritalStatus"));
+			agent.setPremium(rs.getDouble("premium"));
+			
+		}
+		
+		
+		return agent;
+	}
+
+	@Override
+	public String updateAgentDao(Agent agent) throws ClassNotFoundException, SQLException {
+	    Agent existingAgent = searchAgentDao(agent.getAgentID());
+	    if (existingAgent == null) {
+	        return "Agent record not found.";
+	    }
+
+	    String query = "UPDATE agent SET name = ?, gender = ?, city = ?, maritalStatus = ?, premium = ? WHERE agentID = ?";
+	    connection = ConnectionHelper.getConnection();
+	    psmt = connection.prepareStatement(query);
+	    psmt.setString(1, agent.getName());
+	    psmt.setString(2, agent.getGender().toString());
+	    psmt.setString(3, agent.getCity());
+	    psmt.setInt(4, agent.getMaritalStatus());
+	    psmt.setDouble(5, agent.getPremium());
+	    psmt.setInt(6, agent.getAgentID());
+	    psmt.executeUpdate();
+
+	    return "Agent record updated successfully.";
+	}
+
+
+}

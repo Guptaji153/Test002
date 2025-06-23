@@ -1,0 +1,86 @@
+package com.java.exam.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.java.exam.model.Agent;
+import com.java.exam.model.Gender;
+import com.java.exam.util.ConnectionHelper;
+
+public class AgentDaoImpl implements AgentDao{
+
+	Connection connection;
+	PreparedStatement psmt;
+	
+	
+	@Override
+	public List<Agent> showAgentDao() throws ClassNotFoundException, SQLException {
+		List<Agent> agentList = new ArrayList<>();
+		Agent agent = null;
+		connection = ConnectionHelper.getConnection();
+		String query = "select * FROM agent";
+		psmt = connection.prepareStatement(query);
+		ResultSet rs = psmt.executeQuery();
+		while(rs.next()) {
+			agent = new Agent();
+			agent.setAgentID(rs.getInt("agentID"));
+			agent.setName(rs.getString("name"));
+			agent.setCity(rs.getString("city"));
+			agent.setGender(Gender.valueOf(rs.getString("gender")));
+			agent.setMaritalStatus(rs.getInt("maritalStatus"));
+			agent.setPremium(rs.getDouble("premium"));
+			agentList.add(agent);
+		}
+		
+		return agentList;
+		
+		
+	}
+
+
+	@Override
+	public String addAgent(Agent agent) throws ClassNotFoundException, SQLException {
+		// TODO Auto-generated method stub
+		String query = "INSERT into AGENT(agentID,name,gender,city,maritalStatus,premium) VALUES (?,?,?,?,?,?)";
+		connection = ConnectionHelper.getConnection();
+		psmt = connection.prepareStatement(query);
+		psmt.setInt(1, agent.getAgentID());
+		psmt.setString(2, agent.getName());
+		psmt.setString(3, agent.getGender().toString());
+		psmt.setString(4, agent.getCity());
+		psmt.setInt(5, agent.getMaritalStatus());
+		psmt.setDouble(6, agent.getPremium());
+		psmt.executeUpdate();
+		return "Agent Added ";
+	}
+
+
+	@Override
+	public String deleteAgentDao(int agentID) throws ClassNotFoundException, SQLException {
+	    // Define the DELETE query to remove the agent by agentID
+	    String query = "DELETE FROM agent WHERE agentID = ?";
+	    
+	    // Initialize connection and prepared statement
+	    connection = ConnectionHelper.getConnection();
+	    psmt = connection.prepareStatement(query);
+	    
+	    // Set the agentID parameter in the query
+	    psmt.setInt(1, agentID);
+	    
+	    // Execute the query and get the result
+	    int rowsAffected = psmt.executeUpdate();  // Executes the delete query
+	    
+	    // Return appropriate message based on the result of the delete operation
+	    if (rowsAffected > 0) {
+	        return "Agent with ID " + agentID + " deleted successfully!";
+	    } else {
+	        return "Agent with ID " + agentID + " not found!";
+	    }
+	}
+
+
+}

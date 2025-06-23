@@ -1,0 +1,51 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Leave History</title>
+</head>
+<body>
+
+<h2><b>Welcome to Leave History</b></h2>
+
+<sql:setDataSource var="conn"
+    driver="com.mysql.cj.jdbc.Driver"
+    uri="jdbc:mysql://localhost:3306/lms"
+    user="root"
+    password="root" />
+
+<sql:query var="leaveHistoryQuery" dataSource="${conn}">
+    SELECT * FROM LEAVE_HISTORY WHERE EMP_ID = ${param.empId}
+</sql:query>
+
+<table border="1" align="center">
+    <tr>
+        <th>Leave ID</th>
+        <th>Leave Start Date</th>
+        <th>Leave End Date</th>
+        <th>Leave Type</th>
+        <th>No of Days</th>
+        <th>Status</th>
+        <th>Manager Comments</th>
+        <th>Leave Reason</th>
+    </tr>
+
+    <c:forEach var="history" items="${leaveHistoryQuery.rows}">
+        <tr>
+            <td>${history.LEAVE_ID}</td>
+            <td>${history.LEAVE_START_DATE}</td>
+            <td>${history.LEAVE_END_DATE}</td>
+            <td>${history.LEAVE_TYPE}</td>
+            <td>${history.LEAVE_NO_OF_DAYS}</td>
+            <td>${history.LEAVE_STATUS}</td>
+            <td>${history.LEAVE_MNGR_COMMENTS}</td>
+            <td>${history.LEAVE_REASON}</td>
+        </tr>
+    </c:forEach>
+</table>
+
+</body>
+</html>

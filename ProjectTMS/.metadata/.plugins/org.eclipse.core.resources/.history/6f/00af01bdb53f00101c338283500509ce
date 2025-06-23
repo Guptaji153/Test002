@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <title>Expenses List</title>
+</h:head>
+<h:body>
+
+    <h2>All Expenses</h2>
+
+    <!-- Display table of expenses -->
+    <h:dataTable value="#{controllerTMS.showExpenses()}" var="exp" border="1" style="width:100%; text-align:center;">
+        
+        <h:column>
+            <f:facet name="header">ID</f:facet>
+            #{exp.id}
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Paid By (User ID)</f:facet>
+            #{exp.paidByUser}
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Description</f:facet>
+            #{exp.description}
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Total Amount</f:facet>
+            #{exp.totalAmount}
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Expense Date</f:facet>
+            <h:outputText value="#{exp.expenseDate}">
+                <f:convertDateTime pattern="yyyy-MM-dd" />
+            </h:outputText>
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Created At</f:facet>
+            <h:outputText value="#{exp.createdAt}">
+                <f:convertDateTime pattern="yyyy-MM-dd HH:mm:ss" />
+            </h:outputText>
+        </h:column>
+
+    </h:dataTable>
+
+</h:body>
+</html>

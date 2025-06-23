@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <!-- Mapping for Doctor class -->
+    <class name="com.java.hms.model.Doctor" table="Doctor">
+        
+        <!-- Mapping for Doctor ID -->
+        <id name="doctorId" column="doctorId" type="java.lang.String">
+            <generator class="assigned"/>
+        </id>
+        
+        <!-- Mapping for Doctor Name -->
+        <property name="doctorName" column="doctorName" type="java.lang.String"/>
+        
+        <!-- Mapping for Specialization (Enum) -->
+        <property name="specialization">
+            <column name="specialization"/>
+            <type name="org.hibernate.type.EnumType">
+                <param name="enumClass">com.java.hms.model.Specialization</param>
+                <param name="type">12</param>
+            </type>
+        </property>
+        
+        <!-- Mapping for Location -->
+        <property name="location" column="location" type="java.lang.String"/>
+        
+        <!-- Mapping for Mobile Number -->
+        <property name="mobileNo" column="mobileNo" type="java.lang.String"/>
+        
+        <!-- Mapping for Status (Enum) -->
+        <property name="isStatus">
+            <column name="isStatus"/>
+            <type name="org.hibernate.type.EnumType">
+                <param name="enumClass">com.java.hms.model.IsStatus</param>
+                <param name="type">12</param>
+            </type>
+        </property>
+
+    </class>
+
+    <!-- HQL Query to show doctors -->
+    <query name="showDoctors">
+        FROM Doctor
+    </query>
+    
+    <query name="searchDoctor">
+    FROM Doctor WHERE doctorId = :doctorId
+</query>
+    
+
+</hibernate-mapping>

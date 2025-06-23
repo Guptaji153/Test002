@@ -1,0 +1,20 @@
+package com.java.jstlEx;
+
+public class Calc {
+
+	private int firstNo;
+	private int secondNo;
+	private int result;
+	
+	public int sum() {
+		return firstNo +secondNo;
+	}
+	
+	public int sub() {
+		return firstNo-secondNo;
+	}
+	
+	public int mult() {
+		return firstNo* secondNo;
+	}
+}

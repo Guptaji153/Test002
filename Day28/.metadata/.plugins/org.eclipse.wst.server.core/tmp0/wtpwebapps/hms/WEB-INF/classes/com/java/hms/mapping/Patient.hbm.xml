@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <!-- Mapping for Patient class -->
+    <class name="com.java.hms.model.Patient" table="Patient">
+        
+        <!-- Mapping for Patient ID -->
+        <id name="patientId" column="patientId" type="java.lang.String">
+            <generator class="assigned"/> <!-- Assigned indicates the ID is manually assigned -->
+        </id>
+
+        <!-- Mapping for Patient Name -->
+        <property name="patientName" column="patientName" type="java.lang.String"/>
+
+        <!-- Mapping for Date of Birth -->
+        <property name="dateOfBirth" column="dateOfBirth" type="java.sql.Date"/>
+
+        <!-- Many-to-One relationship with Doctor -->
+        <many-to-one name="doctor" column="doctorId" class="com.java.hms.model.Doctor" />
+    </class>
+</hibernate-mapping>

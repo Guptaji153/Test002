@@ -1,0 +1,10 @@
+package com.java.ejb.Dao;
+
+import java.sql.SQLException;
+
+import com.java.ejb.GroupsMember;
+
+public interface GroupsMemberDao {
+
+	String addGroupsMember(GroupsMember member) throws ClassNotFoundException, SQLException;
+}

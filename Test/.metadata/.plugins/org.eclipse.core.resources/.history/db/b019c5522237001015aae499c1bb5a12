@@ -1,0 +1,77 @@
+package com.java.collectionEx;
+
+import java.util.Scanner;
+
+public class Students {
+
+	private String name;
+    private int rollNumber;
+    private double marks;
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public int getRollNumber() {
+		return rollNumber;
+	}
+	public void setRollNumber(int rollNumber) {
+		this.rollNumber = rollNumber;
+	}
+	public double getMarks() {
+		return marks;
+	}
+	public void setMarks(double marks) {
+		this.marks = marks;
+	}
+	
+	// to initialize....
+	public Students(String name, int rollNumber, double marks) {
+		super();
+		this.name = name;
+		this.rollNumber = rollNumber;
+		this.marks = marks;
+	}
+    
+    
+	// calculating grade
+	public String calculateGrade() {
+        if (marks >= 80) {
+            return "Grade A";
+        } else if (marks >= 60) {
+            return "Grade B";
+        } else if (marks >= 40) {
+            return "Grade C";
+        } else {
+            return "Grade D";
+        }
+    }
+	@Override
+	public String toString() {
+		return "Students [name=" + name + ", rollNumber=" + rollNumber + ", marks=" + marks + ", calculateGrade()="
+				+ calculateGrade() + "]";
+	}
+
+	
+	public class Main {
+	    public static void main(String[] args) {
+	        Scanner sc = new Scanner(System.in);
+
+	        System.out.println("Enter the student's name:");
+	        String name = sc.nextLine();
+
+	        System.out.println("Enter the student's roll number:");
+	        int rollNumber = sc.nextInt();
+
+	        System.out.println("Enter the student's marks:");
+	        double marks = sc.nextDouble();
+
+	        Students student = new Students(name, rollNumber, marks);
+
+	        System.out.println(student);
+	    }
+	}
+	
+	
+}

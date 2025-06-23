@@ -1,0 +1,45 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<jsp:useBean id="leaveDetailsDAO" class="com.java.lms.dao.LeaveDAOImpl"></jsp:useBean>
+<c:set var="empId" value="${param.empId}" />
+	<c:set var="mgrId" value="${param.mgrId}" />
+	<c:set var="myInfo" value="${leaveDetailsDAO.showLeaveHistory(param.empId)}" />
+	<c:set var="myManagerInfo" value="${leaveDetailsDAO.showLeaveHistory(param.mgrId)}" />
+	
+	<table border="3" align="center">
+	 <tr>
+            <th>Leave ID</th>
+            <th>Leave Start Date</th>
+            <th>Leave End Date</th>
+            <th>Leave Type</th>
+            <th>No of Days</th>
+            <th>Status</th>
+            <th>Manager Comments</th>
+            <th>Leave Reason</th>
+        </tr>
+	<c:forEach var="history" items="${leaveHistoryQuery.rows}">
+            <tr>
+                <td>${history.LEAVE_ID}</td>
+                <td>${history.LEAVE_START_DATE}</td>
+                <td>${history.LEAVE_END_DATE}</td>
+                <td>${history.LEAVE_TYPE}</td>
+                <td>${history.LEAVE_NO_OF_DAYS}</td>
+                <td>${history.LEAVE_STATUS}</td>
+                <td>${history.LEAVE_MNGR_COMMENTS}</td>
+                <td>${history.LEAVE_REASON}</td>
+            </tr>
+        </c:forEach>
+	
+	
+	</table>
+</body>
+</html>

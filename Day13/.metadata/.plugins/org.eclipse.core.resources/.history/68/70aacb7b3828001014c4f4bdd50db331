@@ -1,0 +1,59 @@
+package com.java.crimeSystem.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.sql.Timestamp;
+
+import com.java.crimeSystem.model.IncidentStatus;
+import com.java.crimeSystem.model.Incidents;
+import com.java.crimeSystem.util.ConnectionHelper;
+
+
+
+public class CrimeDaoImp implements CrimeDao {
+
+	@Override
+	public boolean createIncident(Incidents incident) throws ClassNotFoundException, SQLException {
+	    Connection connection;
+	    PreparedStatement psmt;
+	    boolean result = false;
+
+	    // Now includes IncidentDate
+	    String query = "INSERT INTO Incidents (IncidentID, IncidentType, IncidentDate, Latitude, Longitude, Description, Status, AgencyID, OfficerID) " +
+	                   "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+	    connection = ConnectionHelper.getConnection();
+	    psmt = connection.prepareStatement(query);
+	    
+	    psmt.setInt(1, incident.getIncidentID());
+	    psmt.setString(2, incident.getIncidentType());
+	    psmt.setDate(3, incident.getIncidentDate()); 
+	    psmt.setDouble(4, incident.getLatitude());
+	    psmt.setDouble(5, incident.getLongitude());
+	    psmt.setString(6, incident.getDescription());
+	    psmt.setString(7, incident.getStatus().name().replace("_", " "));
+	    psmt.setInt(8, incident.getAgencyID());
+	    psmt.setInt(9, incident.getOfficerID());
+
+	    int rows = psmt.executeUpdate();
+	    result = rows > 0;
+
+	    return result;
+	}
+
+	@Override
+	public boolean updateIncidentStatus(IncidentStatus status, int incidentId) throws ClassNotFoundException, SQLException {
+	    Connection connection = ConnectionHelper.getConnection();
+	    String query = "UPDATE Incidents SET Status = ? WHERE IncidentID = ?";
+	    PreparedStatement psmt = connection.prepareStatement(query);
+	    
+	    psmt.setString(1, status.name().replace("_", " "));  // Convert enum to DB-friendly format
+	    psmt.setInt(2, incidentId);
+
+	    int rowsAffected = psmt.executeUpdate();
+	    return rowsAffected > 0;
+	}
+
+
+}

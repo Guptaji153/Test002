@@ -1,0 +1,37 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<center><b><i> Welcome to Add Agent Page</i></b></center>
+
+<form method="post" action="AddAgent.jsp">
+		<center>
+			Agent ID : 
+			<input type="number" name="agentID" /> <br/><br/>
+			Agent Name : 
+			<input type="text" name="name" /> <br/><br/>
+			Gender : 
+			<select name="gender">
+				<option value="MALE">Male</option>
+				<option value="FEMALE">Female</option>
+			</select> <br/><br/>
+			
+			City:
+			<input name = "city" type = "text"/><br><br>
+			
+			Marital Status:
+			<input type = "number" name = "marital"> <br> <br>
+			
+			Premium : 
+			<input type="number" name="premium" /> <br/><br/>
+			<input type="submit" value="Add Agent" />
+		</center>
+	</form>
+
+</body>
+</html>

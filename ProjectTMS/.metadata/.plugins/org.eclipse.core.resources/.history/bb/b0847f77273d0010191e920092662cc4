@@ -1,0 +1,6 @@
+package com.java.ejb.Dao;
+
+public interface GroupDao {
+
+	String addGroup(com.java.ejb.Group group);
+}

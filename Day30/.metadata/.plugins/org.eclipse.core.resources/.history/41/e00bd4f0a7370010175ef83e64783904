@@ -1,0 +1,8 @@
+package com.java.client;
+
+import java.util.List;
+
+public class EmployEjbImpl {
+
+	public List<Employ> showEmploy
+}

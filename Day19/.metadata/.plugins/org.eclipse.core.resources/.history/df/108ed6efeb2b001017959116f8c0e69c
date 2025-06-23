@@ -1,0 +1,28 @@
+package com.java.lms.model;
+
+import java.sql.Date;
+
+public class History {
+  private int liveId;
+  private int noOfDays;
+  private String managerComent;
+  private int empId;
+  private Date startDate;
+  private Date endDate;
+  private LeaveType leaveType;
+  private LeaveStatus leaveStatus;
+  private String reason;
+}
+
+
+//CREATE TABLE LEAVE_HISTORY
+//(
+//LEAVE_ID INT PRIMARY KEY AUTO_INCREMENT,
+//LEAVE_NO_OF_DAYS INT,
+//LEAVE_MNGR_COMMENTS CHAR(200),
+//EMP_ID INT,
+//LEAVE_START_DATE DATE NOT NULL, 
+//LEAVE_END_DATE DATE NOT NULL,
+//LEAVE_TYPE ENUM ('EL' ) DEFAULT 'EL',
+//LEAVE_STATUS ENUM ('PENDING','APPROVED','DENIED') DEFAULT 'PENDING',
+//LEAVE_REASON  CHAR(50) NOT NULL,

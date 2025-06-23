@@ -1,0 +1,21 @@
+package com.java.ejb;
+
+import javax.ejb.LocalBean;
+import javax.ejb.Remote;
+import javax.ejb.Stateless;
+
+/**
+ * Session Bean implementation class TMSbean
+ */
+@Stateless
+@Remote(TMSbeanRemote.class)
+public class TMSbean implements TMSbeanRemote {
+
+    /**
+     * Default constructor. 
+     */
+    public TMSbean() {
+        // TODO Auto-generated constructor stub
+    }
+
+}

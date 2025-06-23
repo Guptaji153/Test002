@@ -1,0 +1,19 @@
+package com.java.ejb.Dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+
+import com.java.ejb.Group;
+
+public class GroupDaoImpl implements GroupDao {
+
+	Connection connection;
+	PreparedStatement pst;
+	
+	@Override
+	public String addGroup(Group group) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

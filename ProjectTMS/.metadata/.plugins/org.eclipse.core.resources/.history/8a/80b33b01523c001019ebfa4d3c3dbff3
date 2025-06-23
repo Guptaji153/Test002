@@ -1,0 +1,37 @@
+package com.java.ejb;
+
+import java.util.List;
+
+import javax.ejb.LocalBean;
+import javax.ejb.Remote;
+import javax.ejb.Stateless;
+
+import com.java.ejb.model.User;
+
+/**
+ * Session Bean implementation class TMSbean
+ */
+@Stateless
+@Remote(TMSbeanRemote.class)
+public class TMSbean implements TMSbeanRemote {
+
+    /**
+     * Default constructor. 
+     */
+    public TMSbean() {
+        // TODO Auto-generated constructor stub
+    }
+
+	@Override
+	public List<User> showUsers() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String addUser(User user) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

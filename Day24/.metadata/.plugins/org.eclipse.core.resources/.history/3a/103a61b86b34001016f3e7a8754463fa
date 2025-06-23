@@ -1,0 +1,19 @@
+package com.java.hms.model;
+
+public class Doctor {
+
+	private String doctorId;
+	private String doctorName;
+	private Specialization specialization;
+	private String location;
+	private String mobileNo;
+	
+}
+
+
+//doctorId varchar(30),
+//doctorName varchar(30),
+//specialization ENUM('HEART','SKIN','GENERAL','KIDNEY'),
+//location varchar(30),
+//mobileNo varchar(20),
+//isStatus ENUM('ACTIVE','INACTIVE')

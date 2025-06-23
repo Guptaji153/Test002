@@ -1,0 +1,5 @@
+INDEX VERSION 1.132
+C:\Users\saurabhkumarg\javaTraining\AssetsSystem\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2539454304.index
+\AssetsManagementSystem\src\main\java
+C:\Users\saurabhkumarg\javaTraining\AssetsSystem\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\122947030.index
+\AssetsManagementSystem\src\main\java

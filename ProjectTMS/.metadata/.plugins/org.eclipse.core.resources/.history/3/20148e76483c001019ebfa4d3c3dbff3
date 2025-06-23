@@ -1,0 +1,27 @@
+package com.java.jsf.dao;
+
+import java.util.List;
+
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+
+import com.java.jsf.model.User;
+import com.java.jsf.util.SessionHelper;
+
+public class UserDaoImpl implements UserDao {
+
+	SessionFactory sessionFactory;
+	Session session;
+	
+	@Override
+	public List<User> showUsers() {
+        sessionFactory = SessionHelper.getConnection();
+        session = sessionFactory.openSession();
+        Query query = session.getNamedQuery("showUsers");
+        List<User> userList = query.list();
+        session.close(); // closing session
+        return userList;
+    }
+
+}

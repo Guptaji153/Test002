@@ -1,0 +1,34 @@
+package com.java.jsf;
+
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
+
+public class UserBean {
+
+	private String email;
+	private boolean emailExists(String email) {
+		return "prassucp@gmail.com".equalsIgnoreCase(email);
+	}
+	
+	public String register() {
+		FacesContext context = FacesContext.getCurrentInstance();
+		if(emailExists(email)) {
+			context.addMessage(email, new FacesMessage(FacesMessage.SEVERITY_ERROR,
+					"Email allready registerd", "choose a different email"));
+			context.validationFailed();
+			return null;
+		}
+		context.addMessage(null, new FacesMessage(" ","Registration successful"));
+		return null;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	
+	
+}

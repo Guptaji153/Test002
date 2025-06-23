@@ -1,0 +1,33 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsf/core" prefix="f" %>
+<%@ taglib uri="http://java.sun.com/jsf/html" prefix="h" %>
+
+<f:view>
+<html>
+<body>
+    <h:form>
+        <h:panelGrid columns="2" cellpadding="5">
+            <h:outputLabel for="pharmacyName" value="Pharmacy Name:"/>
+            <h:inputText id="pharmacyName" value="" />
+
+            <h:outputLabel for="licenseNo" value="License No:"/>
+            <h:inputText id="licenseNo" value="" />
+
+            <h:outputLabel for="contactNo" value="Contact No:"/>
+            <h:inputText id="contactNo" value="" />
+
+            <h:outputLabel for="ownerName" value="Owner Name:"/>
+            <h:inputText id="ownerName" value="" />
+
+            <h:outputLabel for="email" value="Email:"/>
+            <h:inputText id="email" value="" />
+
+            <h:outputLabel for="enrollmentDate" value="Enrollment Date:"/>
+            <h:inputText id="enrollmentDate" value="" />
+
+            <h:commandButton value="Submit" action="" />
+        </h:panelGrid>
+    </h:form>
+</body>
+</html>
+</f:view>

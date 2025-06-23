@@ -1,0 +1,76 @@
+package com.java.ejb;
+
+import java.sql.SQLException;
+import java.util.List;
+
+import javax.ejb.Remote;
+import javax.ejb.Stateless;
+
+import com.java.ejb.Dao.ExpensesDao;
+import com.java.ejb.Dao.ExpensesDaoImpl;
+import com.java.ejb.Dao.GroupDao;
+import com.java.ejb.Dao.GroupDaoImpl;
+import com.java.ejb.Dao.GroupsMemberDao;
+import com.java.ejb.Dao.GroupsMemberDaoImpl;
+import com.java.ejb.Dao.UserDao;
+import com.java.ejb.Dao.UserDaoImpl;
+
+
+/**
+ * Session Bean implementation class TMSbean
+ */
+@Stateless
+@Remote(TMSbeanRemote.class)
+public class TMSbean implements TMSbeanRemote {
+
+	static UserDao daoImpl;
+	static GroupDao groupImpl;
+	static GroupsMemberDao groupsMemberImpl;
+	static ExpensesDao expensesImpl;
+	
+	static {
+		daoImpl = new UserDaoImpl();
+		groupImpl = new GroupDaoImpl();
+		groupsMemberImpl = new GroupsMemberDaoImpl();
+		expensesImpl = new ExpensesDaoImpl();
+	}
+	
+    /**
+     * Default constructor. 
+     */
+    public TMSbean() {
+        // TODO Auto-generated constructor stub
+    }
+
+	@Override
+	public List<User> showUsers() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String addUser(User user) throws ClassNotFoundException, SQLException {
+		// TODO Auto-generated method stub
+		
+		return daoImpl.addUser(user);
+	}
+
+	@Override
+	public String addGroup(Group group) throws ClassNotFoundException, SQLException {
+		// TODO Auto-generated method stub
+		return groupImpl.addGroup(group);
+	}
+
+	@Override
+	public String addGroupsMember(GroupsMember member) throws ClassNotFoundException, SQLException {
+	    return groupsMemberImpl.addGroupsMember(member);
+	}
+
+	@Override
+	public String addExpenses(Expenses expenses) throws ClassNotFoundException, SQLException {
+		// TODO Auto-generated method stub
+		return expensesImpl.addExpenses(expenses);
+	}
+
+
+}

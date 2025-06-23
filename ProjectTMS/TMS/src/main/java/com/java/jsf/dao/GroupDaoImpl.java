@@ -1,0 +1,28 @@
+package com.java.jsf.dao;
+
+import java.util.List;
+
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+
+import com.java.jsf.model.Group;
+
+import com.java.jsf.util.SessionHelper;
+
+public class GroupDaoImpl implements GroupDao {
+
+	SessionFactory sessionFactory;
+	Session session;
+	
+	@Override
+	public List<Group> showGroup() {
+		    sessionFactory = SessionHelper.getConnection();
+	        session = sessionFactory.openSession();
+	        Query query = session.getNamedQuery("showGroup");
+	        List<Group> groupList = query.list();
+	        session.close(); // closing the session
+	        return groupList;
+	}
+
+}

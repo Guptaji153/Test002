@@ -1,0 +1,49 @@
+<%@ page import="java.util.List" %>
+<%@ page import="com.java.jdbc.dao.EmployDao" %>
+<%@ page import="com.java.jdbc.dao.EmployDaoImpl" %>
+<%@ page import="com.java.jdbc.model.Employ" %> <!-- Make sure this exists -->
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Employee List</title>
+</head>
+<body>
+
+<%
+    EmployDao dao = new EmployDaoImpl();
+    List<Employ> employList = dao.showEmployDao();
+%>
+
+<table border="5" align="center">
+<tr>
+    <th>Employ No</th>
+    <th>Employ Name</th>
+    <th>Gender</th>
+    <th>Department</th>
+    <th>Designation</th>
+    <th>Basic</th>
+    <th>Update</th>
+    <th border= "3">Delete</th>
+</tr>
+
+<% for (Employ emp : employList) { %>
+<tr>
+    <td><%= emp.getEmpno() %></td>
+    <td><%= emp.getName() %></td>
+    <td><%= emp.getGender() %></td>
+    <td><%= emp.getDept() %></td>
+    <td><%= emp.getDesig() %></td>
+    <td><%= emp.getBasic() %></td>
+    <td> <a href=UpdateEmploy.jsp?empno=<%= emp.getEmpno() %>> Update</a>  </td>
+    <td> <a href=DeleteEmploy.jsp?empno=<%=emp.getEmpno() %>>Delete</a></td>
+</tr>
+<% } %>
+
+</table>
+
+<a href="AddEmploy.jsp">Add Employ</a>
+
+</body>
+</html>

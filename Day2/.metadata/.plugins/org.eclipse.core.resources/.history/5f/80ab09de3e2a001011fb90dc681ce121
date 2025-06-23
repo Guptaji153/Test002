@@ -1,0 +1,49 @@
+<%@page import="com.java.jdbc.model.Employ"%>
+<%@page import="com.java.jdbc.dao.EmployDaoImpl"%>
+<%@page import="com.java.jdbc.dao.EmployDao"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<center> <b>Welcome To Update Employ</b></center>
+
+<%
+int empno = Integer.parseInt(request.getParameter("empno"));
+    EmployDao dao = new EmployDaoImpl();
+    Employ emp = dao.searchEmployDao(empno);
+
+%>
+
+<form action="UpdateEmploy.jsp" >
+
+<center>
+
+Employ No:
+<input type="text" name ="empno" value=<%emp.getEmpno() %> readonly="readonly"/> <br><br>
+Employ Name:
+<input type = "text" name= "name" value= <%emp.getName() %> /> <br><br>
+Gender:
+<input type = "text" name = "gender" value = <% emp.getGender() %>/> <br> <br>
+
+Employ Department:
+<input type = "text" name = "dept" value = <% emp.getDept() %>/> <br><br>
+
+Empoy Designation:
+<input type = "text" name = "desig" value = <%emp.getDesig() %>/> <br><br>
+
+Basics:
+<input type = "text" name = "basic" value = <% emp.getBasic() %>/> <br><br>
+
+<input type ="submit" value = "update"/>
+  
+</center>
+
+</form>
+
+</body>
+</html>

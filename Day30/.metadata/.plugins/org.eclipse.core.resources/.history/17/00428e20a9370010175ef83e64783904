@@ -1,0 +1,13 @@
+package com.java.ejb;
+
+import java.util.List;
+import javax.ejb.Remote;
+public class EmployEjbImpl {
+
+	public List<Employ> showEmployEjb(){
+		
+		EmployJdbcBeanRemote remote = RemoteHelper.LookupRemoteStateLessEmploy();
+		return remote.showEmployDao();
+		
+	}
+}

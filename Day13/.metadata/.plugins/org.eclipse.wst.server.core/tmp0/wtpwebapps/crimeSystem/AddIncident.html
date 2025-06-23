@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Add Incident</title>
+</head>
+<body>
+    <form method="post" action="AddIncidentServlet">
+        <center>
+            
+            
+            Incident Type:
+            <input type="text" name="incidentType" required /> <br/><br/>
+            
+            Incident Date:
+            <input type="date" name="incidentDate" required /> <br/><br/>
+            
+            Latitude:
+            <input type="number" step="0.000001" name="latitude" required /> <br/><br/>
+            
+            Longitude:
+            <input type="number" step="0.000001" name="longitude" required /> <br/><br/>
+            
+            Description:
+            <input type="text" name="description" required /> <br/><br/>
+            
+          
+          
+       
+            <input type="submit" value="Add Incident"/>
+        </center>
+    </form>
+</body>
+</html>

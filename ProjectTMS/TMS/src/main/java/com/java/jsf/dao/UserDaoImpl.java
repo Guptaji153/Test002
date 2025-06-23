@@ -1,0 +1,79 @@
+package com.java.jsf.dao;
+
+import java.sql.SQLException;
+import java.util.List;
+import java.util.Map;
+
+import javax.faces.context.FacesContext;
+
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+
+import com.java.jsf.model.User;
+//import com.java.jsf.util.EncryptPassword;
+import com.java.jsf.util.SessionHelper;
+
+public class UserDaoImpl implements UserDao {
+
+	SessionFactory sessionFactory;
+	Session session;
+	
+	@Override
+	public List<User> showUsers() {
+        sessionFactory = SessionHelper.getConnection();
+        session = sessionFactory.openSession();
+        Query query = session.getNamedQuery("showUsers");
+        List<User> userList = query.list();
+        session.close(); // closing the session
+        return userList;
+    }
+
+	@Override
+	public String validate(User user) {
+	    Map<String, Object> sessionMap = FacesContext.getCurrentInstance().getExternalContext().getSessionMap();
+	    session = SessionHelper.getConnection().openSession();
+	    Query query = session.getNamedQuery("authenticate");
+	    query.setParameter("userName", user.getName());
+	    query.setParameter("email", user.getEmail());
+	    User userFound = (User) query.uniqueResult();
+	    
+	    if (userFound != null) {
+	       // sessionMap.put("user", userFound);
+	    	sessionMap.put("loggedInUserId", userFound.getId());
+	    	sessionMap.put("loggedInUser", userFound); 
+
+	        if ("admin".equalsIgnoreCase(userFound.getRole())) {
+	            return "AdminDashboard.jsf?faces-redirect=true";
+	        } else {
+	            return "UserDashboard.jsf?faces-redirect=true";
+	        }
+	    } else {
+	        sessionMap.put("error", "Invalid Credentials...");
+	        return "Login.jsp?faces-redirect=true";
+	    }
+	}
+
+
+@Override
+public String findUserById(int id) {
+	Map<String,Object> sessionMap = 
+			FacesContext.getCurrentInstance().getExternalContext().getSessionMap();
+	sessionFactory = SessionHelper.getConnection();
+	session = sessionFactory.openSession();
+	Query query = session.getNamedQuery("searchUser");
+	query.setParameter("userId",id);   
+	User User = (User)query.uniqueResult();
+	sessionMap.put("UserFound", User);
+	return "SearchUser.jsp?faces-redirect=true";
+}
+
+
+
+
+
+
+
+
+
+}

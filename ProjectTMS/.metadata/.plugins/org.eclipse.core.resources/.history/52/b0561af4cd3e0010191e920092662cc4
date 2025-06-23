@@ -1,0 +1,48 @@
+package com.java.jsf.model;
+
+import java.sql.Timestamp;
+
+public class GroupsMember {
+
+	private int groupId;
+	private int UserId;
+	private Timestamp joinedAt;
+	public int getGroupId() {
+		return groupId;
+	}
+	public void setGroupId(int groupId) {
+		this.groupId = groupId;
+	}
+	public int getUserId() {
+		return UserId;
+	}
+	public void setUserId(int userId) {
+		UserId = userId;
+	}
+	public Timestamp getJoinedAt() {
+		return joinedAt;
+	}
+	public void setJoinedAt(Timestamp joinedAt) {
+		this.joinedAt = joinedAt;
+	}
+	public GroupsMember() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public GroupsMember(int groupId, int userId, Timestamp joinedAt) {
+		super();
+		this.groupId = groupId;
+		UserId = userId;
+		this.joinedAt = joinedAt;
+	}
+	@Override
+	public String toString() {
+		return "GroupsMember [groupId=" + groupId + ", UserId=" + UserId + ", joinedAt=" + joinedAt + "]";
+	}
+	
+	
+}
+//id INT AUTO_INCREMENT PRIMARY KEY,
+//group_id INT NOT NULL,
+//user_id INT NOT NULL,
+//joined_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,

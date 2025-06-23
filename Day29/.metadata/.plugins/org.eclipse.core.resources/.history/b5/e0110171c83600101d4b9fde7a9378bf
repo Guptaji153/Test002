@@ -1,0 +1,5 @@
+package rmi2;
+
+public class Hello {
+
+}

@@ -1,0 +1,71 @@
+package com.java.jsf.dao;
+
+import java.sql.SQLException;
+import java.util.List;
+import java.util.Map;
+
+import javax.faces.context.FacesContext;
+
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+
+import com.java.jsf.model.User;
+import com.java.jsf.util.EncryptPassword;
+import com.java.jsf.util.SessionHelper;
+
+public class UserDaoImpl implements UserDao {
+
+	SessionFactory sessionFactory;
+	Session session;
+	
+	@Override
+	public List<User> showUsers() {
+        sessionFactory = SessionHelper.getConnection();
+        session = sessionFactory.openSession();
+        Query query = session.getNamedQuery("showUsers");
+        List<User> userList = query.list();
+        session.close(); // closing the session
+        return userList;
+    }
+
+	@Override
+	public String validate(User login) {
+	    Session session = null;
+	    try {
+	        Map<String, Object> sessionMap = FacesContext.getCurrentInstance()
+	                .getExternalContext().getSessionMap();
+
+	        session = SessionHelper.getConnection().openSession();
+	        Query<User> query = session.getNamedQuery("authenticate");
+	        
+	        String encryptedPass = EncryptPassword.getCode(login.getEmail());
+
+	        query.setParameter("userName", login.getName());
+	        query.setParameter("passCode", encryptedPass);
+
+	        User userFound = (User) query.uniqueResult();
+
+	        if (userFound != null) {
+	            sessionMap.put("user", userFound); // Optional: store user info in session
+	            return "ShowUser.jsf?faces-redirect=true";
+	        } else {
+	            sessionMap.put("error", "Invalid Credentials...");
+	            return "Login.jsp?faces-redirect=true";
+	        }
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	        return "Login.jsp?faces-redirect=true";
+	    } finally {
+	        if (session != null) {
+	            session.close();
+	        }
+	    }
+	}
+
+
+
+
+
+
+}

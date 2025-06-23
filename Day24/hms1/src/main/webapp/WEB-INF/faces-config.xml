@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config xmlns="http://java.sun.com/xml/ns/javaee"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd"
+              version="2.0" metadata-complete="false">
+
+              
+              
+              <!-- Bean for DAO -->
+<managed-bean>
+    <managed-bean-name>doctorDao</managed-bean-name>
+    <managed-bean-class>com.java.hms.dao.DoctorDaoImpl</managed-bean-class>
+    <managed-bean-scope>request</managed-bean-scope>
+</managed-bean>
+
+<!-- Bean for Model -->
+<managed-bean>
+    <managed-bean-name>doctor</managed-bean-name>
+    <managed-bean-class>com.java.hms.model.Doctor</managed-bean-class>
+    <managed-bean-scope>request</managed-bean-scope>
+</managed-bean>
+
+<!-- Bean for Controller -->
+<managed-bean>
+    <managed-bean-name>doctorController</managed-bean-name>
+    <managed-bean-class>com.java.hms.controller.DoctorController</managed-bean-class>
+    <managed-bean-scope>request</managed-bean-scope>
+
+    <!-- Inject doctorDao into doctorController -->
+    <managed-property>
+        <property-name>doctorDao</property-name>
+        <property-class>com.java.hms.dao.DoctorDao</property-class>
+        <value>#{doctorDao}</value>
+    </managed-property>
+
+    <!-- Inject doctor into doctorController -->
+    <managed-property>
+        <property-name>doctor</property-name>
+        <property-class>com.java.hms.model.Doctor</property-class>
+        <value>#{doctor}</value>
+    </managed-property>
+</managed-bean>
+              

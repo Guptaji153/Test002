@@ -1,0 +1,41 @@
+package com.java.jsf.controller;
+
+import java.sql.SQLException;
+
+import com.java.ejb.model.Employ;
+import com.java.jsf.EmployEjbStatefulImpl;
+import com.java.jsf.EmployEjbStatelessImpl;
+
+public class EmployController {
+	
+	private com.java.ejb.model.Employ employ;
+	private EmployEjbStatefulImpl ejbStateful;
+	private EmployEjbStatelessImpl ejbImpl;
+	
+	
+	public com.java.ejb.model.Employ getEmploy() {
+		return employ;
+	}
+	public void setEmploy(com.java.ejb.model.Employ employ) {
+		this.employ = employ;
+	}
+	public EmployEjbStatefulImpl getEmployEjbStatefullImpl() {
+		return employEjbStatefullImpl;
+	}
+	public void setEmployEjbStatefullImpl(EmployEjbStatefulImpl employEjbStatefullImpl) {
+		this.employEjbStatefullImpl = employEjbStatefullImpl;
+	}
+	public EmployEjbStatelessImpl getEmployEjbStatelessImpl() {
+		return employEjbStatelessImpl;
+	}
+	public void setEmployEjbStatelessImpl(EmployEjbStatelessImpl employEjbStatelessImpl) {
+		this.employEjbStatelessImpl = employEjbStatelessImpl;
+	}
+	
+	
+	
+	
+	public String addemp(com.java.ejb.model.Employ employ) throws ClassNotFoundException, SQLException {
+		return employEjbStatefullImpl.addEmployEjb(employ);
+	}
+}

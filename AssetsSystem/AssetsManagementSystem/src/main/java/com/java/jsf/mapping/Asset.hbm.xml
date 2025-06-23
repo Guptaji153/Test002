@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.java.jsf.model.Asset" table="asset">
+
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+
+        <property name="name" type="java.lang.String">
+            <column name="name" not-null="true" length="100" />
+        </property>
+
+        <property name="description" type="text">
+            <column name="description" />
+        </property>
+
+        <property name="quantity" type="int">
+            <column name="quantity" not-null="true" />
+        </property>
+
+    </class>
+      <query name="showAsset">
+        FROM Asset
+    </query>
+</hibernate-mapping>

@@ -1,0 +1,16 @@
+package com.java.ejb.Dao;
+
+import java.sql.SQLException;
+import java.util.List;
+
+import com.java.ejb.User;
+
+
+
+
+
+public interface UserDao {
+
+	List<User> showUsers();
+	String addUser(User user) throws ClassNotFoundException, SQLException;
+}

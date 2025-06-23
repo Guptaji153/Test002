@@ -1,0 +1,103 @@
+package com.java.lms.model;
+
+import java.sql.Date;
+
+public class History {
+  private int leaveId;
+  private int noOfDays;
+  private String managerComent;
+  private int empId;
+  private Date startDate;
+  private Date endDate;
+  private LeaveType leaveType;
+  private LeaveStatus leaveStatus;
+  private String reason;
+public int getLeaveId() {
+	return leaveId;
+}
+public void setLeaveId(int leaveId) {
+	this.leaveId = leaveId;
+}
+public int getNoOfDays() {
+	return noOfDays;
+}
+public void setNoOfDays(int noOfDays) {
+	this.noOfDays = noOfDays;
+}
+public String getManagerComent() {
+	return managerComent;
+}
+public void setManagerComent(String managerComent) {
+	this.managerComent = managerComent;
+}
+public int getEmpId() {
+	return empId;
+}
+public void setEmpId(int empId) {
+	this.empId = empId;
+}
+public Date getStartDate() {
+	return startDate;
+}
+public void setStartDate(Date startDate) {
+	this.startDate = startDate;
+}
+public Date getEndDate() {
+	return endDate;
+}
+public void setEndDate(Date endDate) {
+	this.endDate = endDate;
+}
+public LeaveType getLeaveType() {
+	return leaveType;
+}
+public void setLeaveType(LeaveType leaveType) {
+	this.leaveType = leaveType;
+}
+public LeaveStatus getLeaveStatus() {
+	return leaveStatus;
+}
+public void setLeaveStatus(LeaveStatus leaveStatus) {
+	this.leaveStatus = leaveStatus;
+}
+public String getReason() {
+	return reason;
+}
+public void setReason(String reason) {
+	this.reason = reason;
+}
+public History(int leaveId, int noOfDays, String managerComent, int empId, Date startDate, Date endDate,
+		LeaveType leaveType, LeaveStatus leaveStatus, String reason) {
+	super();
+	this.leaveId = leaveId;
+	this.noOfDays = noOfDays;
+	this.managerComent = managerComent;
+	this.empId = empId;
+	this.startDate = startDate;
+	this.endDate = endDate;
+	this.leaveType = leaveType;
+	this.leaveStatus = leaveStatus;
+	this.reason = reason;
+}
+public History() {
+	super();
+	// TODO Auto-generated constructor stub
+}
+
+  
+  
+  
+}
+
+
+//CREATE TABLE LEAVE_HISTORY
+//(
+//LEAVE_ID INT PRIMARY KEY AUTO_INCREMENT,
+//LEAVE_NO_OF_DAYS INT,
+//LEAVE_MNGR_COMMENTS CHAR(200),
+//EMP_ID INT,
+//LEAVE_START_DATE DATE NOT NULL, 
+//LEAVE_END_DATE DATE NOT NULL,
+//LEAVE_TYPE ENUM ('EL' ) DEFAULT 'EL',
+//LEAVE_STATUS ENUM ('PENDING','APPROVED','DENIED') DEFAULT 'PENDING',
+//LEAVE_REASON  CHAR(50) NOT NULL,

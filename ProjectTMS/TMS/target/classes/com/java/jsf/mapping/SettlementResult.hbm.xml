@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.java.jsf.model.SettlementResult" table="settlements">
+
+        <!-- Primary Key -->
+        <id name="id" type="int">
+            <column name="id"/>
+            <generator class="identity"/>
+        </id>
+
+        <!-- Group ID -->
+        <property name="groupId" type="int">
+            <column name="group_id" not-null="true"/>
+        </property>
+
+        <!-- Total Collected -->
+        <property name="totalCollected" type="double">
+            <column name="total_collected" not-null="true"/>
+        </property>
+
+        <!-- Total Expenses -->
+        <property name="totalExpenses" type="double">
+            <column name="total_expenses" not-null="true"/>
+        </property>
+
+        <!-- Member Count -->
+        <property name="memberCount" type="int">
+            <column name="member_count" not-null="true"/>
+        </property>
+
+        <!-- Balance Per Person -->
+        <property name="balancePerPerson" type="double">
+            <column name="balance_per_person" not-null="true"/>
+        </property>
+
+        <!-- Admin Refund Amount -->
+        <property name="adminRefundAmount" type="double">
+            <column name="admin_refund_amount" not-null="true"/>
+        </property>
+
+        <!-- Admin ID -->
+        <property name="adminId" type="int">
+            <column name="admin_id" not-null="true"/>
+        </property>
+
+        <!-- Settlement Date -->
+        <property name="settlementDate" type="timestamp">
+            <column name="settlement_date" not-null="true"/>
+        </property>
+
+    </class>
+</hibernate-mapping>

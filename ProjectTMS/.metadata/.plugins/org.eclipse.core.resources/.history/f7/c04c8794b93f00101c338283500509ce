@@ -1,0 +1,32 @@
+package com.java.ejb.Dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+import com.java.ejb.Expenses;
+import com.java.ejb.connection.ConnectionHelper;
+
+public class ExpensesDaoImpl implements ExpensesDao {
+
+	Connection connection;
+	PreparedStatement pst;
+	@Override
+	public String addExpenses(Expenses expenses) throws ClassNotFoundException, SQLException {
+		Connection connection = ConnectionHelper.getConnection();
+
+		String cmd = "INSERT INTO expenses (paid_by_user_id, description, total_amount, expense_date) VALUES (?, ?, ?, ?)";
+		PreparedStatement pst = connection.prepareStatement(cmd);
+
+		pst.setInt(1, expenses.getPaidByUser());
+		pst.setString(2, expenses.getDescription());
+		pst.setBigDecimal(3, expenses.getTotalAmount());
+		pst.setDate(4, expenses.getExpenseDate());
+
+		pst.executeUpdate();
+
+		return "Expense record inserted......";
+
+	}
+
+}

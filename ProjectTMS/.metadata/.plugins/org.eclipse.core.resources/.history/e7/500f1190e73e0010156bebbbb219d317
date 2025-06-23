@@ -1,0 +1,36 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+
+<%@ taglib prefix="f" uri="http://java.sun.com/jsf/core" %>
+<%@ taglib prefix="h" uri="http://java.sun.com/jsf/html" %>
+
+<f:view>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+<h:form id="userForm">
+    <h:outputLabel value="Group ID:" for="name" />
+    <h:inputText id="name" value="#{ejbGroupsMember.group.id}" /> 
+    <h:message for="name" style="color:red" />
+    <br>
+
+    <h:outputLabel value="User ID:" for="email" />
+    <h:inputText id="email" value="#{ejbGroupsMember.user.id}" />
+    <h:message for="email" style="color:red" />
+    <br>
+
+<h:outputText value="DEBUG: #{ejbGroupsMember}" />
+
+    
+    <h:commandButton action="#{controllerTMS.addUsersMemberEjb(ejbGroupsMember)}" value="Add Groups Member" immediate="false" />
+    
+</h:form>
+
+</body>
+</html>
+</f:view>

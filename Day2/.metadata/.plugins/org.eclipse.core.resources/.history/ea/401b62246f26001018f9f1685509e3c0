@@ -1,0 +1,24 @@
+package com.java.test1;
+
+
+public class Main {
+
+	
+	  public static void main(String[] args) {
+	        Exceptions e = new Exceptions();
+	        e.m1(); // Call the method
+	    }
+	
+	
+	
+}
+
+public class Exceptions {
+	 public void m1() {
+	     try {
+	         System.out.println(10 / 0); // This will throw ArithmeticException
+	     } finally {
+	         System.out.println("hi");   // This will always execute
+	     }
+	 }
+	}

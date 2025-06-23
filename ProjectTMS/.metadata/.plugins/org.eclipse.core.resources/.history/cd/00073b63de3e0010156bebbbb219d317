@@ -1,0 +1,6 @@
+package com.java.ejb.Dao;
+
+public interface GroupsMemberDao {
+
+	String addGroupsMember(GroupsMemberDao member);
+}

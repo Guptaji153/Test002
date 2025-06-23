@@ -1,0 +1,31 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    <%@ taglib prefix="f" uri="http://java.sun.com/jsf/core" %>
+    <%@ taglib prefix="h" uri="http://java.sun.com/jsf/html" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+<h:form prependId="false">
+
+<h:panelGrid columns="2">
+
+<h:outputLabel for = "email" value = "Email:"></h:outputLabel>
+<h:inputText id="email" value="#{userBean.email }" required="true"></h:inputText>
+<h:message for="email" style="color:red"></h:message>
+
+<h:commandButton value="register" action="#{userBean.register }"></h:commandButton>
+
+</h:panelGrid>
+
+<h:messages showDetail="true" showSummary="true" style="color:blue"></h:messages>
+
+</h:form>
+
+
+</body>
+</html>

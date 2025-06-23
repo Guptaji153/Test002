@@ -1,0 +1,73 @@
+/* General body and page styling */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to right, #f9f9f9, #ddefff );
+}
+
+/* Main content section styling */
+.main-menu-container {
+    text-align: center;
+    padding: 40px;
+}
+
+h2 {
+    color: #34495e;
+    margin-bottom: 20px;
+}
+
+/* Styling the container that holds the menu items */
+.menu-items {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+/* Styling for each menu item box */
+.menu-item {
+  background-color: #f5f5dc;
+
+   
+    color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.menu-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
+}
+
+/* Style the links inside the menu items */
+.menu-item a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    display: block;
+    transition: color 0.3s ease;
+}
+
+.menu-item a:hover {
+    color: #1abc9c;
+}
+
+/* Responsive design for smaller screens */
+@media screen and (max-width: 768px) {
+    .menu-items {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .menu-item {
+        width: 100%;
+        max-width: 300px;
+        margin-bottom: 20px;
+    }
+}

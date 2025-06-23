@@ -1,0 +1,5 @@
+127.0.0.1 - - [03/May/2025:16:23:09 +0530] "GET / HTTP/1.1" 404 751
+0:0:0:0:0:0:0:1 - - [03/May/2025:16:23:09 +0530] "GET /ServletEx/CheckDbConnectionServlet HTTP/1.1" 200 36
+127.0.0.1 - - [03/May/2025:16:24:52 +0530] "GET / HTTP/1.1" 404 751
+0:0:0:0:0:0:0:1 - - [03/May/2025:16:24:52 +0530] "GET /ServletEx/CheckDbConnectionServlet HTTP/1.1" 200 36
+0:0:0:0:0:0:0:1 - - [03/May/2025:16:30:18 +0530] "GET /ServletEx/CheckDbConnectionServlet HTTP/1.1" 200 36

@@ -1,0 +1,5 @@
+package com.java.crimeSystem.dao;
+
+public class CrimeDaoImp implements CrimeDao {
+
+}

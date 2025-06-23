@@ -1,0 +1,45 @@
+package com.java.jsf.dao;
+
+import java.util.List;
+
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+
+import com.java.jsf.model.GroupsMember;
+import com.java.jsf.util.SessionHelper;
+
+public class GroupsMemberDaoImpl implements GroupsMemberDao {
+
+	SessionFactory sessionFactory;
+	Session session;
+	
+	@Override
+	public List<GroupsMember> showGroupsMember() {
+	    sessionFactory = SessionHelper.getConnection();
+	    session = sessionFactory.openSession();
+	    String hql = "FROM GroupsMember gm " +
+	                 "JOIN FETCH gm.group " +
+	                 "JOIN FETCH gm.user";
+	    Query query = session.createQuery(hql);
+	    List<GroupsMember> groupList = query.list();
+	    session.close();
+	    return groupList;
+	}
+
+	
+//	@Override
+//	public List<GroupsMember> showGroupsMember() {
+//		 sessionFactory = SessionHelper.getConnection();
+//	        session = sessionFactory.openSession();
+//	        Query query = session.getNamedQuery("showGroupsMember");
+//	        List<GroupsMember> groupList = query.list();
+//	        session.close(); // closing the session
+//	        return groupList;
+//	}
+	
+	
+	
+
+
+}

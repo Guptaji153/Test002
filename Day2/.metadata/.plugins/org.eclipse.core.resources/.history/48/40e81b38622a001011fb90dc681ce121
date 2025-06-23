@@ -1,0 +1,43 @@
+<%@page import="com.java.exam.model.Agent"%>
+<%@page import="java.util.List"%>
+<%@page import="com.java.exam.dao.AgentDaoImpl"%>
+<%@page import="com.java.exam.dao.AgentDao"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+<%  AgentDao dao = new AgentDaoImpl();
+    List<Agent> agentList = dao.showAgentDao();
+%>
+
+<table border="5" align="center">
+    <tr>
+        <th>Agent ID</th>
+        <th>Agent Name</th>
+        <th>Agent City</th>
+        <th>Agent Gender</th>
+        <th>Marital Status</th>
+        <th>Premium</th>
+    </tr>
+
+    <% for (Agent agent : agentList) { %>
+        <tr>
+            <td><%= agent.getAgentID() %></td>
+            <td><%= agent.getName() %></td>
+            <td><%= agent.getCity() %></td>
+            <td><%= agent.getGender() %></td>
+            <td><%= agent.getMaritalStatus() %></td>
+            <td><%= agent.getPremium() %></td>
+        </tr>
+    <% } %>
+</table>
+
+
+</body>
+</html>

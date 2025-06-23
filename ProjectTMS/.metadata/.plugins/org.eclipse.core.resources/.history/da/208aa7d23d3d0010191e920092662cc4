@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.java.jsf.model.Group" table="groupss">
+
+        <!-- Primary Key -->
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+
+        <!-- Group Name -->
+        <property name="name" type="string">
+            <column name="name" not-null="true" length="100" />
+        </property>
+
+        <!-- Creation Timestamp -->
+        <property name="createdAt" type="timestamp" insert="false" update="false">
+            <column name="created_at" />
+        </property>
+
+    </class>
+        <query name="showGroup">
+        FROM Group
+    </query>
+</hibernate-mapping>

@@ -1,0 +1,9 @@
+LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/arch=x86_64
+LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/name=Local
+LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/os=win32
+configDescList=org.jboss.tools.wtp.server.launchbar.ModuleDescriptorType\:/addAdmin.jsp,org.jboss.tools.wtp.server.launchbar.ModuleDescriptorType\:/WEB-INF/classes/com/java/jsf/dao/AdminDaoImpl.java,org.jboss.tools.wtp.server.launchbar.ModuleDescriptorType\:/showAsset.jsp,org.jboss.tools.wtp.server.launchbar.ModuleDescriptorType\:/addAsset.jsp,org.jboss.tools.wtp.server.launchbar.ModuleDescriptorType\:/searchAssets.jsp,org.jboss.tools.wtp.server.launchbar.ModuleDescriptorType\:/menu.jsp,org.jboss.tools.wtp.server.launchbar.ModuleDescriptorType\:/registerUser.jsp,org.jboss.tools.wtp.server.launchbar.ModuleDescriptorType\:/userLogin.jsp,org.jboss.tools.wtp.server.launchbar.ModuleDescriptorType\:/adminLogin.jsp,org.jboss.tools.wtp.server.launchbar.ModuleDescriptorType\:/AdminDashboard.jsp,org.jboss.tools.wtp.server.launchbar.ModuleDescriptorType\:/test1_pharmacyAdd.jsp,org.jboss.tools.wtp.server.launchbar.ModuleDescriptorType\:AssetsManagementSystem
+eclipse.preferences.version=1
+org.eclipse.launchbar.core.descriptorType.default\:Tomcat\ v8.5\ Server\ at\ localhost/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local
+org.eclipse.launchbar.core.descriptorType.default\:hibernate/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local
+org.jboss.tools.wtp.server.launchbar.ModuleDescriptorType\:AssetsManagementSystem/activeLaunchMode=run
+org.jboss.tools.wtp.server.launchbar.ModuleDescriptorType\:AssetsManagementSystem/activeLaunchTarget=null\:---

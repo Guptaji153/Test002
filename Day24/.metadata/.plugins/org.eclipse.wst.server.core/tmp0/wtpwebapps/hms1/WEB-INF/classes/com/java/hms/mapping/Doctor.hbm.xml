@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.java.jsf.model.Doctor" table="Doctor">
+        
+        <id name="doctorId" column="doctorId" type="string">
+            <generator class="assigned"/>
+        </id>
+        
+        <property name="doctorName" column="doctorName" type="string"/>
+        
+        <property name="specialization">
+            <column name="specialization"/>
+            <type name="org.hibernate.type.EnumType">
+                <param name="enumClass">com.java.jsf.model.Specialization</param>
+                <param name="type">12</param>
+            </type>
+        </property>
+        
+        <property name="location" column="location" type="string"/>
+        <property name="mobileNo" column="mobileNo" type="string"/>
+        
+        <property name="isStatus">
+            <column name="isStatus"/>
+            <type name="org.hibernate.type.EnumType">
+                <param name="enumClass">com.java.jsf.model.Status</param>
+                <param name="type">12</param>
+            </type>
+        </property>
+    </class>
+
+    <query name="showDoctors">FROM Doctor</query>
+</hibernate-mapping>

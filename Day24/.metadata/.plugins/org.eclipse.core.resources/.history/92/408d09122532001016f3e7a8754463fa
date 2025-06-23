@@ -1,0 +1,25 @@
+package com.java.cms.dao;
+
+import java.util.List;
+
+import com.java.cms.model.Restaurant;
+import com.mysql.cj.xdevapi.SessionFactory;
+
+public class RestaurantDaoImpl implements RestaurantDao {
+
+	
+	SessionFactory sessionFactory;
+	Session session;
+	
+	
+	@Override
+	public List<Restaurant> showRestaurant() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
+	
+	
+
+}

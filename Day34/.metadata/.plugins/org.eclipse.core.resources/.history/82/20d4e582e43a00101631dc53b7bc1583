@@ -1,0 +1,10 @@
+package com.java.jsf.controller;
+
+import com.java.jsf.EmployEjbStatefulImpl;
+import com.java.jsf.EmployEjbStatelessImpl;
+
+public class EmployController {
+
+	private EmployEjbStatefulImpl employEjbStatefullImpl;
+	private EmployEjbStatelessImpl employEjbStatelessImpl;
+}

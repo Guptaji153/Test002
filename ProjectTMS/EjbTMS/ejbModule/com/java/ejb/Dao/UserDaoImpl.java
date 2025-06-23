@@ -1,0 +1,34 @@
+package com.java.ejb.Dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.List;
+
+import com.java.ejb.connection.ConnectionHelper;
+import com.java.ejb.User;
+
+public class UserDaoImpl implements UserDao {
+
+	Connection connection;
+	PreparedStatement pst;
+	
+	@Override
+	public List<User> showUsers() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String addUser(User user) throws ClassNotFoundException, SQLException {
+	    connection = ConnectionHelper.getConnection();
+	    String cmd = "INSERT INTO users(name, email) VALUES(?, ?)";
+	    PreparedStatement pst = connection.prepareStatement(cmd);
+	    pst.setString(1, user.getName());
+	    pst.setString(2, user.getEmail());
+	    pst.executeUpdate();
+	    return "User Record Inserted...";
+	}
+
+
+}

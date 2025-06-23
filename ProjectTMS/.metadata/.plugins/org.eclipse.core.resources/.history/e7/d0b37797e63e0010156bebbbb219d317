@@ -1,0 +1,27 @@
+package com.java.ejb.Dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+import com.java.ejb.GroupsMember;
+import com.java.ejb.connection.ConnectionHelper;
+
+public class GroupsMemberDaoImpl implements GroupsMemberDao{
+
+	Connection connection;
+	PreparedStatement pst;
+	
+	@Override
+	public String addGroupsMember(GroupsMember member) throws ClassNotFoundException, SQLException {
+		connection = ConnectionHelper.getConnection();
+	    String cmd = "INSERT INTO group_members (group_id, user_id) VALUES (?, ?)";
+	    pst = connection.prepareStatement(cmd);
+	    pst.setInt(1, member.getGroup().getId());
+	    pst.setInt(2, member.getUser().getId());
+	    pst.executeUpdate();
+	    
+	    return "Group member inserted successfully.";
+	}
+
+}

@@ -1,0 +1,10 @@
+/**
+ * 
+ */
+/**
+ * @author saurabhkumarg
+ *
+ */
+module rmi2 {
+	requires java.rmi;
+}

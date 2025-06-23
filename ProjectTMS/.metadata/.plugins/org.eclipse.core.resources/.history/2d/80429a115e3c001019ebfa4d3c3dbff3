@@ -1,0 +1,15 @@
+package com.java.ejb;
+
+import java.sql.SQLException;
+import java.util.List;
+
+import javax.ejb.Remote;
+
+import com.java.ejb.model.User;
+
+@Remote
+public interface TMSbeanRemote {
+
+	List<User> showUsers();
+	String addUser(User user) throws ClassNotFoundException, SQLException;
+}

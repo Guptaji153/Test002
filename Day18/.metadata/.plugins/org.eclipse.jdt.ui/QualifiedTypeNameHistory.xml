@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="com.java.lib.dao.LibraryDao"/>
+    <fullyQualifiedTypeName name="java.sql.Connection"/>
+    <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
+    <fullyQualifiedTypeName name="com.java.lib.util.EncryptPassword"/>
+    <fullyQualifiedTypeName name="com.java.lib.model.LibUsers"/>
+    <fullyQualifiedTypeName name="java.sql.ResultSet"/>
+    <fullyQualifiedTypeName name="jakarta.validation.constraints.AssertFalse.List"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="com.java.lib.model.Books"/>
+    <fullyQualifiedTypeName name="com.java.lib.util.ConnectionHelper"/>
+    <fullyQualifiedTypeName name="com.java.lib.model.AdminUser"/>
+</qualifiedTypeNameHistroy>

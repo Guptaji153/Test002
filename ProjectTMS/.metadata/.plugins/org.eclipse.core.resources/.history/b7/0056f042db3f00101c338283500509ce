@@ -1,0 +1,72 @@
+package com.java.ejb.service;
+
+import java.util.*;
+import org.hibernate.*;
+import org.hibernate.criterion.*;
+
+import com.java.ejb.Expenses;
+import com.java.ejb.GroupsMember;
+
+public class SettlementService {
+
+    private SessionFactory sessionFactory;
+
+    public SettlementService(SessionFactory sessionFactory) {
+        this.sessionFactory = sessionFactory;
+    }
+
+    public double settlement(int grpId) {
+        int adminId = 2;
+        Session session = sessionFactory.openSession();
+
+        Criteria cr = session.createCriteria(GroupsMember.class);
+        cr.add(Restrictions.eq("groupId", grpId));
+        ProjectionList projectionList = Projections.projectionList();
+        projectionList.add(Projections.sum("amountCollected"));
+        cr.setProjection(projectionList);
+        double amount = (Double) cr.uniqueResult();
+
+        cr = session.createCriteria(GroupsMember.class);
+        cr.add(Restrictions.eq("groupId", grpId));
+        projectionList = Projections.projectionList();
+        projectionList.add(Projections.rowCount());
+        cr.setProjection(projectionList);
+        long count = (Long) cr.uniqueResult();
+
+        cr = session.createCriteria(Expenses.class);
+        cr.add(Restrictions.eq("groupId", grpId));
+        projectionList = Projections.projectionList();
+        projectionList.add(Projections.sum("amount"));
+        cr.setProjection(projectionList);
+        double totalExpenses = (Double) cr.uniqueResult();
+
+        double balancePerPerson = (totalExpenses - amount) / count;
+
+        cr = session.createCriteria(Expenses.class);
+        cr.add(Restrictions.eq("groupId", grpId));
+        projectionList = Projections.projectionList();
+        projectionList.add(Projections.groupProperty("paidBy"));
+        projectionList.add(Projections.sum("amount"));
+        cr.setProjection(projectionList);
+        List<Object[]> result = cr.list();
+
+        double refAmount = 0;
+        for (Object[] row : result) {
+            Integer paidBy = (Integer) row[0];
+            Double paidAmount = (Double) row[1];
+            if (paidBy == adminId) {
+                double actual = paidAmount - 80000;
+                refAmount = actual - balancePerPerson;
+            }
+        }
+
+        System.out.println("Total Group Members: " + count);
+        System.out.println("Amount Collected: " + amount);
+        System.out.println("Total Expenses: " + totalExpenses);
+        System.out.println("Balance per person: " + balancePerPerson);
+        System.out.println("Admin Refund Amount: " + refAmount);
+
+        session.close();
+        return amount;
+    }
+}

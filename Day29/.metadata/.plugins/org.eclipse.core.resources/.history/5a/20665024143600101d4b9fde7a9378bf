@@ -1,0 +1,13 @@
+package com.java.abs1;
+
+public class Main {
+
+	public static void main(String[] args) {
+		String name = "Oneplus";
+		AbstractFactory obj = new MobileFactory();
+		Mobile mname = obj.getName(name);
+		System.out.println(mname.getClass().getSimpleName());
+		System.out.println(mname.name());
+		
+	}
+}

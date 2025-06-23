@@ -1,0 +1,88 @@
+package com.java.jsf.dao;
+
+import java.util.*;
+import org.hibernate.*;
+import org.hibernate.criterion.*;
+
+import com.java.ejb.Expenses;
+import com.java.ejb.GroupsMember;
+import com.java.jsf.model.SettlementResult;
+
+public class SettlementService {
+
+    private SessionFactory sessionFactory;
+
+    public SettlementService(SessionFactory sessionFactory) {
+        this.sessionFactory = sessionFactory;
+    }
+
+    public SettlementResult settlement(int grpId) {
+        int adminId = 2;
+        Session session = sessionFactory.openSession();
+        Transaction tx = session.beginTransaction();
+
+        // Total amount collected
+        Criteria cr = session.createCriteria(GroupsMember.class);
+        cr.add(Restrictions.eq("groupId", grpId));
+        ProjectionList projectionList = Projections.projectionList();
+        projectionList.add(Projections.sum("amountCollected"));
+        cr.setProjection(projectionList);
+        Double amountCollected = (Double) cr.uniqueResult();
+
+        // Member count
+        cr = session.createCriteria(GroupsMember.class);
+        cr.add(Restrictions.eq("groupId", grpId));
+        projectionList = Projections.projectionList();
+        projectionList.add(Projections.rowCount());
+        cr.setProjection(projectionList);
+        Long memberCount = (Long) cr.uniqueResult();
+
+        // Total expenses
+        cr = session.createCriteria(Expenses.class);
+        cr.add(Restrictions.eq("groupId", grpId));
+        projectionList = Projections.projectionList();
+        projectionList.add(Projections.sum("amount"));
+        cr.setProjection(projectionList);
+        Double totalExpenses = (Double) cr.uniqueResult();
+
+        // Calculate balance per person
+        double balancePerPerson = (totalExpenses - amountCollected) / memberCount;
+
+        // Find admin refund amount
+        cr = session.createCriteria(Expenses.class);
+        cr.add(Restrictions.eq("groupId", grpId));
+        projectionList = Projections.projectionList();
+        projectionList.add(Projections.groupProperty("paidBy"));
+        projectionList.add(Projections.sum("amount"));
+        cr.setProjection(projectionList);
+
+        List<Object[]> result = cr.list();
+        double adminRefund = 0;
+        for (Object[] row : result) {
+            Integer paidBy = (Integer) row[0];
+            Double paidAmount = (Double) row[1];
+            if (paidBy == adminId) {
+                double actual = paidAmount - 80000;
+                adminRefund = actual - balancePerPerson;
+            }
+        }
+
+        // Save to SettlementResult
+        SettlementResult sr = new SettlementResult();
+        sr.setGroupId(grpId);
+        sr.setTotalCollected(amountCollected);
+        sr.setTotalExpenses(totalExpenses);
+        sr.setMemberCount(memberCount.intValue());
+        sr.setBalancePerPerson(balancePerPerson);
+        sr.setAdminRefundAmount(adminRefund);
+        sr.setAdminId(adminId);
+        sr.setSettlementDate(new java.util.Date());
+
+        session.save(sr);
+        tx.commit();
+        session.close();
+
+        return sr;
+    }
+
+}

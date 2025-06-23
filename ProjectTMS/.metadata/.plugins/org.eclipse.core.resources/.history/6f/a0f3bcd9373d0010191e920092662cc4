@@ -1,0 +1,8 @@
+package com.java.ejb.Dao;
+
+import java.sql.SQLException;
+
+public interface GroupDao {
+
+	String addGroup(com.java.ejb.Group group) throws ClassNotFoundException, SQLException;
+}

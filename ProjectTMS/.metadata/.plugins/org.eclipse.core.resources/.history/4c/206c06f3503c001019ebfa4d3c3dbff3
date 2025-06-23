@@ -1,0 +1,14 @@
+package com.java.ejb;
+
+import java.util.List;
+
+import javax.ejb.Remote;
+
+import com.java.ejb.model.User;
+
+@Remote
+public interface TMSbeanRemote {
+
+	List<User> showUsers();
+	String addUser(User user);
+}

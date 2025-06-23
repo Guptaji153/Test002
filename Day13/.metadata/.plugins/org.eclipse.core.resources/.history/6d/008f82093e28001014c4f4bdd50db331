@@ -1,0 +1,96 @@
+package com.java.crimeSystem.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Timestamp;
+import java.util.List;
+import java.util.ArrayList;
+
+import com.java.crimeSystem.model.IncidentStatus;
+import com.java.crimeSystem.model.Incidents;
+import com.java.crimeSystem.util.ConnectionHelper;
+
+
+
+public class CrimeDaoImp implements CrimeDao {
+
+	 Connection connection;
+	    PreparedStatement psmt;
+	
+	@Override
+	public boolean createIncident(Incidents incident) throws ClassNotFoundException, SQLException {
+	   
+	    boolean result = false;
+
+	    // Now includes IncidentDate
+	    String query = "INSERT INTO Incidents (IncidentID, IncidentType, IncidentDate, Latitude, Longitude, Description, Status, AgencyID, OfficerID) " +
+	                   "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+	    connection = ConnectionHelper.getConnection();
+	    psmt = connection.prepareStatement(query);
+	    
+	    psmt.setInt(1, incident.getIncidentID());
+	    psmt.setString(2, incident.getIncidentType());
+	    psmt.setDate(3, incident.getIncidentDate()); 
+	    psmt.setDouble(4, incident.getLatitude());
+	    psmt.setDouble(5, incident.getLongitude());
+	    psmt.setString(6, incident.getDescription());
+	    psmt.setString(7, incident.getStatus().name().replace("_", " "));
+	    psmt.setInt(8, incident.getAgencyID());
+	    psmt.setInt(9, incident.getOfficerID());
+
+	    int rows = psmt.executeUpdate();
+	    result = rows > 0;
+
+	    return result;
+	}
+
+	@Override
+	public boolean updateIncidentStatus(IncidentStatus status, int incidentId) throws ClassNotFoundException, SQLException {
+	    connection = ConnectionHelper.getConnection();  
+	    String query = "UPDATE Incidents SET Status = ? WHERE IncidentID = ?";
+	    psmt = connection.prepareStatement(query);
+
+	    psmt.setString(1, status.name().replace("_", " "));  // Set the status
+	    psmt.setInt(2, incidentId);  // Set the incident ID
+
+	    int rows = psmt.executeUpdate();  // Execute the update
+	    return rows > 0;  // Return true if one row was affected
+	}
+
+	
+	 @Override
+	    public List<Incidents> getIncidentsInDateRange(java.sql.Date startDate, java.sql.Date endDate) throws ClassNotFoundException, SQLException {
+	        connection = ConnectionHelper.getConnection();
+	        String query = "SELECT * FROM Incidents WHERE IncidentDate BETWEEN ? AND ?";
+	        psmt = connection.prepareStatement(query);
+
+	        // Set the start and end date parameters
+	        psmt.setDate(1, startDate);
+	        psmt.setDate(2, endDate);
+
+	        ResultSet rs = psmt.executeQuery();
+
+	        List<Incidents> incidentsList = new ArrayList<>();
+
+	        while (rs.next()) {
+	            Incidents incident = new Incidents();
+	            incident.setIncidentID(rs.getInt("IncidentID"));
+	            incident.setIncidentType(rs.getString("IncidentType"));
+	            incident.setIncidentDate(rs.getDate("IncidentDate"));
+	            incident.setLatitude(rs.getDouble("Latitude"));
+	            incident.setLongitude(rs.getDouble("Longitude"));
+	            incident.setDescription(rs.getString("Description"));
+	            incident.setStatus(IncidentStatus.valueOf(rs.getString("Status").replace(" ", "_")));
+	            incident.setAgencyID(rs.getInt("AgencyID"));
+	            incident.setOfficerID(rs.getInt("OfficerID"));
+	            incidentsList.add(incident);
+	        }
+
+	        return incidentsList;
+	    }
+
+
+}

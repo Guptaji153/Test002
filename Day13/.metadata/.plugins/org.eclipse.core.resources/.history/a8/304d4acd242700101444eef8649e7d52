@@ -1,0 +1,35 @@
+package com.java.crimeSystem.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.sql.Timestamp;
+
+import com.java.crimeSystem.model.Incidents;
+import com.java.crimeSystem.util.ConnectionHelper;
+
+public class CrimeDaoImp implements CrimeDao {
+
+	@Override
+	public boolean createIncident(Incidents incident) throws ClassNotFoundException, SQLException {
+		// TODO Auto-generated method stub
+		Connection connection;
+		PreparedStatement psmt;
+		boolean result = false;
+		
+		String query = "INSERT INTO Incidents (IncidentType, Latitude, Longitude, Description, Status, AgencyID, OfficerID) " +
+	               "VALUES (?, ?, ?, ?, ?, ?, ?)";
+
+		 connection = ConnectionHelper.getConnection();
+		 psmt = connection.prepareStatement(query);
+		 
+         psmt.setString(1, incident.getIncidentType());
+         psmt.setTimestamp(2, new Timestamp(incident.getIncidentDate().getTime())); 
+         psmt.setDouble(3, incident.getLatitude());
+
+		 
+		 
+		return false;
+	}
+
+}

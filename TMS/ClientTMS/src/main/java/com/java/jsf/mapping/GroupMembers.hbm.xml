@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.java.jsf.model">
+    <class name="GroupMembers" table="group_members">
+        <id name="id" column="id" type="int">
+            <generator class="identity"/>
+        </id>
+
+        <many-to-one name="group" column="group_id" class="com.java.jsf.model.Groups" not-null="true"/>
+        <many-to-one name="user" column="user_id" class="com.java.jsf.model.Users" not-null="true"/>
+        
+        <property name="joinedAt" column="joined_at" type="java.time.LocalDateTime" />
+    </class>
+</hibernate-mapping>

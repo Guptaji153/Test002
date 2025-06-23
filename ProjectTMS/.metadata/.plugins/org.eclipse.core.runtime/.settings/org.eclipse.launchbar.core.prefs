@@ -1,0 +1,16 @@
+LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/arch=x86_64
+LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/name=Local
+LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/os=win32
+LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.wst.server,WildFly\ 9.x/name=WildFly 9.x
+configDescList=org.eclipse.launchbar.core.descriptorType.default\:WildFly 9.x,org.jboss.tools.wtp.server.launchbar.ModuleDescriptorType\:/searchUser.jsp,org.jboss.tools.wtp.server.launchbar.ModuleDescriptorType\:/AdminDashboard.jsp,org.jboss.tools.wtp.server.launchbar.ModuleDescriptorType\:/addGroup.jsp,org.jboss.tools.wtp.server.launchbar.ModuleDescriptorType\:/addExpenses.jsp,org.jboss.tools.wtp.server.launchbar.ModuleDescriptorType\:/expensesList.jsp,org.jboss.tools.wtp.server.launchbar.ModuleDescriptorType\:/settlement.jsp,org.jboss.tools.wtp.server.launchbar.ModuleDescriptorType\:,org.jboss.tools.wtp.server.launchbar.ModuleDescriptorType\:/Login.jsp,org.jboss.tools.wtp.server.launchbar.ModuleDescriptorType\:EjbTMS,org.jboss.tools.wtp.server.launchbar.ModuleDescriptorType\:TMS
+eclipse.preferences.version=1
+org.eclipse.launchbar.core.descriptorType.default\:WildFly\ 9.x/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local
+org.eclipse.launchbar.core.descriptorType.default\:hibernate/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local
+org.jboss.tools.wtp.server.launchbar.ModuleDescriptorType\:/Login.jsp/activeLaunchMode=run
+org.jboss.tools.wtp.server.launchbar.ModuleDescriptorType\:/Login.jsp/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.wst.server\:WildFly 9.x
+org.jboss.tools.wtp.server.launchbar.ModuleDescriptorType\:/activeLaunchMode=run
+org.jboss.tools.wtp.server.launchbar.ModuleDescriptorType\:/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.wst.server\:WildFly 9.x
+org.jboss.tools.wtp.server.launchbar.ModuleDescriptorType\:EjbTMS/activeLaunchMode=run
+org.jboss.tools.wtp.server.launchbar.ModuleDescriptorType\:EjbTMS/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.wst.server\:WildFly 9.x
+org.jboss.tools.wtp.server.launchbar.ModuleDescriptorType\:TMS/activeLaunchMode=run
+org.jboss.tools.wtp.server.launchbar.ModuleDescriptorType\:TMS/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.wst.server\:WildFly 9.x

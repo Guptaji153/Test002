@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
+    <fullyQualifiedTypeName name="com.java.crimeSystem.util.ConnectionHelper"/>
+    <fullyQualifiedTypeName name="java.sql.Timestamp"/>
+    <fullyQualifiedTypeName name="jakarta.ws.rs.core.Response.Status"/>
+    <fullyQualifiedTypeName name="com.java.crimeSystem.model.Incidents"/>
+    <fullyQualifiedTypeName name="com.java.crimeSystem.model.IncidentStatus"/>
+    <fullyQualifiedTypeName name="com.java.crimeSystem.dao.CrimeDao"/>
+    <fullyQualifiedTypeName name="com.java.crimeSystem.dao.CrimeDaoImp"/>
+    <fullyQualifiedTypeName name="java.sql.SQLException"/>
+    <fullyQualifiedTypeName name="java.io.IOException"/>
+    <fullyQualifiedTypeName name="java.sql.Connection"/>
+    <fullyQualifiedTypeName name="java.sql.ResultSet"/>
+    <fullyQualifiedTypeName name="com.mysql.cj.x.protobuf.MysqlxCrud.Collection"/>
+    <fullyQualifiedTypeName name="com.java.crimeSystem.exception.IncidentNotFoundException"/>
+    <fullyQualifiedTypeName name="com.java.crimeSystem.model.Report"/>
+    <fullyQualifiedTypeName name="java.sql.Date"/>
+    <fullyQualifiedTypeName name="java.io.PrintWriter"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+</qualifiedTypeNameHistroy>

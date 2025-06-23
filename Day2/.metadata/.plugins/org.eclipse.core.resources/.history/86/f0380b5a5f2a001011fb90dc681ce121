@@ -1,0 +1,54 @@
+package com.java.exam.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.java.exam.model.Agent;
+import com.java.exam.model.Gender;
+import com.java.exam.util.ConnectionHelper;
+
+public class AgentDaoImpl implements AgentDao{
+
+	Connection connection;
+	PreparedStatement psmt;
+	
+	
+	@Override
+	public List<Agent> showAgentDao() throws ClassNotFoundException, SQLException {
+		List<Agent> agentList = new ArrayList<>();
+		Agent agent = null;
+		connection = ConnectionHelper.getConnection();
+		String query = "select * FROM agent";
+		psmt = connection.prepareStatement(query);
+		ResultSet rs = psmt.executeQuery();
+		while(rs.next()) {
+			agent = new Agent();
+			agent.setAgentID(rs.getInt("agentID"));
+			agent.setName(rs.getString("name"));
+			agent.setCity(rs.getString("city"));
+			agent.setGender(Gender.valueOf(rs.getString("gender")));
+			agent.setMaritalStatus(rs.getInt("maritalStatus"));
+			agent.setPremium(rs.getDouble("premium"));
+			agentList.add(agent);
+		}
+		
+		return agentList;
+		
+		
+	}
+
+
+	@Override
+	public String addAgent(Agent agent) throws ClassNotFoundException, SQLException {
+		// TODO Auto-generated method stub
+		String query = "INSERT into AGENT(agentID,name,gender,city,maritalStatus,premium) VALUES (?,?,?,?,?,?)";
+		connection = ConnectionHelper.getConnection();
+		psmt = connection.prepareStatement(query);
+		return null;
+	}
+
+}

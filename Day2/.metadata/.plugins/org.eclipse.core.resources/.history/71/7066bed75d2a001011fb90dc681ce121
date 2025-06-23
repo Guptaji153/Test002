@@ -1,0 +1,21 @@
+package com.java.exam.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.util.List;
+
+import com.java.exam.model.Agent;
+
+public class AgentDaoImpl implements AgentDao{
+
+	Connection connection;
+	PreparedStatement psmt;
+	
+	
+	@Override
+	public List<Agent> showAgentDao() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

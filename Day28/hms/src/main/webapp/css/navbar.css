@@ -1,0 +1,28 @@
+.navbar {
+    background-color: #34495e;
+    overflow: hidden;
+    padding: 10px 0;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%; /* Ensure it takes full width */
+    display: flex; /* Use flexbox to align items horizontally */
+    justify-content: center; /* Center the links horizontally */
+    gap: 10px; /* Optional: Adjust space between links */
+}
+
+.navbar a {
+    color: white;
+    padding: 12px 20px;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block; /* Make each link an inline block */
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    width: auto; /* Optional: Set the width to auto for flexibility */
+    text-align: center; /* Center the text */
+}
+
+.navbar a:hover {
+    background-color: #1abc9c;
+    color: white;
+}

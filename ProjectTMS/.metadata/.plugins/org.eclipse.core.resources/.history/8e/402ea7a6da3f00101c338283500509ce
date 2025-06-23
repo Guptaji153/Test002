@@ -1,0 +1,5 @@
+package com.java.ejb.service;
+
+public class SettlementService {
+
+}

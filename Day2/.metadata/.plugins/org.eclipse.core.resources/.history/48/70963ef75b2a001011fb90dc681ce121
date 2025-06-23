@@ -1,0 +1,5 @@
+package com.java.exam.dao;
+
+public interface AgentDao {
+
+}

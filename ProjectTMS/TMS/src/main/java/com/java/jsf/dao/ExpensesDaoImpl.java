@@ -1,0 +1,26 @@
+ package com.java.jsf.dao;
+
+import java.util.List;
+
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+
+import com.java.jsf.model.Expenses;
+import com.java.jsf.util.SessionHelper;
+
+public class ExpensesDaoImpl implements ExpensesDao {
+
+	SessionFactory sessionFactory;
+	Session session;
+	@Override
+	public List<Expenses> showExpenses() {
+		 sessionFactory = SessionHelper.getConnection();
+	        session = sessionFactory.openSession();
+	        Query query = session.getNamedQuery("showExpenses");
+	        List<Expenses> expensesList = query.list();
+	        session.close(); // closing the session
+	        return expensesList;
+	}
+
+}

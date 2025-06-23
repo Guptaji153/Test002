@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.java.jsf.model.User" table="users">
+
+        <!-- Primary Key -->
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+
+        <!-- Other Columns -->
+        <property name="name" type="string">
+            <column name="name" not-null="true" length="100" />
+        </property>
+
+        <property name="email" type="string">
+            <column name="email" not-null="true" unique="true" length="100" />
+        </property>
+
+        <property name="createdAt" type="timestamp">
+            <column name="created_at" insert="false" update="false" />
+        </property>
+
+    </class>
+</hibernate-mapping>
